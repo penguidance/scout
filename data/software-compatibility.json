@@ -688,14 +688,9 @@
       ],
       "publisher_pattern": "Intuit"
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "TurboTax (web)",
-        "note": "Aynı üreticinin tarayıcı üzerinden çalışan çevrimiçi sürümü; masaüstü sürümle bire bir aynı olmayabilir."
-      }
-    ],
-    "notes": "TurboTax masaüstü uygulamasının Linux sürümü yok; üreticinin web tabanlı çevrimiçi sürümü tarayıcıdan kullanılabilir.",
+    "status": "web",
+    "alternatives": [],
+    "notes": "TurboTax masaüstü uygulamasının Linux sürümü yok ve çalışmaz; aynı üreticinin çevrimiçi sürümü tarayıcıdan kullanılabilir, ama bu ayrı bir ürün olabilir ve fiyatlandırması masaüstü sürümden farklı olabilir.",
     "importance": "normal"
   },
   {
@@ -931,14 +926,9 @@
         }
       ]
     },
-    "status": "equivalent",
-    "alternatives": [
-      {
-        "name": "Dağıtımın paket yöneticisi (apt/dnf/pacman)",
-        "note": "Aynı işlevi görür: araçları buradan kurup güncellersin."
-      }
-    ],
-    "notes": "Bu, Visual Studio bileşenlerini kurup güncelleyen bir araçtır — bir program değil. Linux'ta yazılım kurulumu zaten dağıtımın kendi paket yöneticisiyle yapılır, ayrı bir yükleyiciye gerek yoktur.",
+    "status": "built_in",
+    "alternatives": [],
+    "notes": "Bu, Visual Studio bileşenlerini kurup güncelleyen bir araçtır — bağımsız bir program değil. Linux'ta yazılım kurulumu zaten dağıtımın kendi paket yöneticisiyle (apt/dnf/pacman) yapıldığı için ayrı bir yükleyiciye gerek yoktur.",
     "importance": "minor"
   },
   {
@@ -992,14 +982,9 @@
         }
       ]
     },
-    "status": "equivalent",
-    "alternatives": [
-      {
-        "name": "Dağıtımın kendi terminali ve paket yöneticisi",
-        "note": "MSYS2'nin sağladığı bash/gcc/make gibi araçlar Linux'ta zaten yerleşiktir."
-      }
-    ],
-    "notes": "MSYS2, Windows üzerinde Unix benzeri bir geliştirme ortamı sağlamak için var; Linux'ta buna zaten gerek yok, çünkü dağıtımın kendi kabuğu ve derleyicileri aynı işi doğrudan görür.",
+    "status": "built_in",
+    "alternatives": [],
+    "notes": "MSYS2, Windows üzerinde Unix benzeri bir geliştirme ortamı (bash, gcc, make gibi araçlar) sağlamak için var; bunlar Linux'ta zaten işletim sisteminin bir parçası olduğu için ayrı bir program kurmaya ya da muadil aramaya gerek yoktur.",
     "importance": "minor"
   },
   {
@@ -1146,9 +1131,14 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [],
-    "notes": "SteelSeries GG'nin Linux sürümü yok. Çoğu SteelSeries çevre birimi temel bir HID aygıtı olarak Linux'ta sorunsuz çalışır; kaybedilen yalnızca RGB aydınlatma/makro gibi özelleştirme özellikleridir.",
+    "status": "partial",
+    "alternatives": [
+      {
+        "name": "OpenRGB",
+        "note": "Açık kaynak topluluk projesi; RGB aydınlatma kontrolünün bir kısmını destekler, tüm modellerde veya SteelSeries GG ile birebir aynı kapsamda değildir."
+      }
+    ],
+    "notes": "SteelSeries GG'nin (yapılandırma yazılımının) Linux sürümü yok, ama çevre biriminin kendisi bundan etkilenmez: klavye/fare/kulaklık temel bir HID aygıtı olarak Linux'ta sorunsuz çalışır. Kaybedilen yalnızca RGB aydınlatma ve makro/DPI profili gibi özelleştirme özellikleridir.",
     "importance": "minor"
   },
   {
