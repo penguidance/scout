@@ -144,6 +144,45 @@ public class SoftwareReportGeneratorTests
         Assert.DoesNotContain(ReportStrings.SoftwareProblemsSectionTitle, html);
     }
 
+    [Fact]
+    public void Generate_PartialSoftware_AppearsInProblemsSectionWithFeatureLossNote()
+    {
+        var steelSeries = Software("SteelSeries GG");
+        var entry = DbEntry(SoftwareCompatibilityStatus.Partial, notes: "Klavye/fare çalışır, RGB/makro yapılandırması yok.");
+        var analysis = Result([Assessed(steelSeries, entry)]);
+
+        var html = new ReportGenerator().Generate(ProfileWithSoftware([steelSeries]), analysis);
+
+        Assert.Contains(ReportStrings.SoftwareProblemsSectionTitle, html);
+        Assert.Contains("SteelSeries GG", html);
+        Assert.Contains("Klavye/fare çalışır, RGB/makro yapılandırması yok.", html);
+        Assert.Contains(ReportStrings.SoftwareStatusLabel(SoftwareCompatibilityStatus.Partial), html);
+    }
+
+    [Fact]
+    public void Generate_PartialSoftwareWithNoAlternatives_ShowsThePartialSpecificFallback()
+    {
+        var software = Software("Some Partial Tool");
+        var entry = DbEntry(SoftwareCompatibilityStatus.Partial, notes: "n/a");
+        var analysis = Result([Assessed(software, entry)]);
+
+        var html = new ReportGenerator().Generate(ProfileWithSoftware([software]), analysis);
+
+        Assert.Contains(ReportStrings.SoftwarePartialNoAlternativeNeeded, html);
+    }
+
+    [Fact]
+    public void Generate_BuiltInSoftware_NeverAppearsInTheProblemsSection()
+    {
+        var msys2 = Software("MSYS2");
+        var entry = DbEntry(SoftwareCompatibilityStatus.BuiltIn, notes: "Linux'ta zaten terminal ve paket yöneticisi var.");
+        var analysis = Result([Assessed(msys2, entry)]);
+
+        var html = new ReportGenerator().Generate(ProfileWithSoftware([msys2]), analysis);
+
+        Assert.DoesNotContain(ReportStrings.SoftwareProblemsSectionTitle, html);
+    }
+
     // ---- Equivalents + native-summary section --------------------------------------------
 
     [Fact]
@@ -205,6 +244,39 @@ public class SoftwareReportGeneratorTests
         // not all 34 names dumped into the summary sentence.
         Assert.Contains("ve 31 program", html);
         Assert.DoesNotContain("App 34", html.Split("Tam Yazılım Envanteri")[0]); // not before the folded dump
+    }
+
+    [Fact]
+    public void Generate_BuiltInSoftware_ProducesItsOwnOneLineSummaryDistinctFromNative()
+    {
+        var msys2 = Software("MSYS2");
+        var entry = DbEntry(SoftwareCompatibilityStatus.BuiltIn);
+        var analysis = Result([Assessed(msys2, entry)]);
+
+        var html = new ReportGenerator().Generate(ProfileWithSoftware([msys2]), analysis);
+
+        Assert.Contains(ReportStrings.SoftwareEquivalentsSectionTitle, html);
+        Assert.Contains("MSYS2", html);
+        Assert.Contains("muadil aramaya gerek yok", html);
+        Assert.DoesNotContain("Linux'ta doğrudan çalışıyor.", html); // that is Native's wording, not BuiltIn's
+    }
+
+    [Fact]
+    public void Generate_NativeAndBuiltInTogether_ProduceTwoSeparateSummarySentences()
+    {
+        var chrome = Software("Google Chrome");
+        var msys2 = Software("MSYS2");
+        var analysis = Result([
+            Assessed(chrome, DbEntry(SoftwareCompatibilityStatus.Native)),
+            Assessed(msys2, DbEntry(SoftwareCompatibilityStatus.BuiltIn))
+        ]);
+
+        var html = new ReportGenerator().Generate(ProfileWithSoftware([chrome, msys2]), analysis);
+
+        Assert.Contains("Google Chrome", html);
+        Assert.Contains("Linux'ta doğrudan çalışıyor.", html);
+        Assert.Contains("MSYS2", html);
+        Assert.Contains("muadil aramaya gerek yok", html);
     }
 
     [Fact]

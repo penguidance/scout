@@ -11,7 +11,7 @@ public sealed class SoftwareCompatibilityEntry
     [JsonPropertyName("status")]
     public required SoftwareCompatibilityStatus Status { get; init; }
 
-    /// <summary>Suggested substitutes. Empty (not null) when there is nothing to suggest — e.g. always empty for <see cref="SoftwareCompatibilityStatus.Native"/>.</summary>
+    /// <summary>Suggested substitutes. Empty (not null) when there is nothing to suggest — e.g. always empty for <see cref="SoftwareCompatibilityStatus.Native"/> and <see cref="SoftwareCompatibilityStatus.BuiltIn"/>.</summary>
     [JsonPropertyName("alternatives")]
     public IReadOnlyList<SoftwareAlternative> Alternatives { get; init; } = [];
 

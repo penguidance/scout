@@ -123,6 +123,25 @@ public class SoftwareCompatibilityDatabaseTests
         Assert.Empty(entry.Alternatives);
     }
 
+    [Theory]
+    [InlineData("built_in", SoftwareCompatibilityStatus.BuiltIn)]
+    [InlineData("partial", SoftwareCompatibilityStatus.Partial)]
+    public void FromJson_ParsesTheNewStatusValuesAsSnakeCase(string jsonValue, SoftwareCompatibilityStatus expected)
+    {
+        var json = $$"""
+            [{
+              "match": { "name_aliases": [{ "pattern": "Test App", "match_type": "contains" }] },
+              "status": "{{jsonValue}}",
+              "notes": "n/a",
+              "importance": "minor"
+            }]
+            """;
+
+        var entry = Assert.Single(SoftwareCompatibilityDatabase.FromJson(json).Entries);
+
+        Assert.Equal(expected, entry.Status);
+    }
+
     [Fact]
     public void FromJson_ParsesRegistryKeyAndMultipleAliases()
     {

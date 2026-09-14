@@ -226,6 +226,8 @@ public static class ReportStrings
     public const string SoftwareWebAlternativeLabel = "Tarayıcı üzerinden kullanılabilir";
     public const string SoftwareNoKnownAlternative = "Bilinen bir muadili yok.";
     public const string SoftwareWineNoAlternativeNeeded = "Ek bir muadile gerek yok, Wine/Proton ile çalışıyor.";
+    public const string SoftwareBuiltInNoAlternativeNeeded = "Muadil aramaya gerek yok, bu iş Linux'ta zaten işletim sisteminin kendi özelliği.";
+    public const string SoftwarePartialNoAlternativeNeeded = "Ek bir muadile gerek yok, temel işlev Linux'ta zaten çalışıyor; sadece bazı ek özellikler eksik.";
 
     public static string SoftwareStatusLabel(SoftwareCompatibilityStatus status) => status switch
     {
@@ -233,6 +235,8 @@ public static class ReportStrings
         SoftwareCompatibilityStatus.Equivalent => "Muadili var",
         SoftwareCompatibilityStatus.Wine => "Wine/Proton ile çalışır",
         SoftwareCompatibilityStatus.Web => "Tarayıcı üzerinden kullanılabilir",
+        SoftwareCompatibilityStatus.BuiltIn => "Zaten Linux'un bir özelliği",
+        SoftwareCompatibilityStatus.Partial => "Kısmen çalışır, bazı özellikler eksik",
         SoftwareCompatibilityStatus.Blocked => "Çalışmaz, muadili yok",
         SoftwareCompatibilityStatus.Unknown => Unknown,
         _ => Unknown
@@ -264,7 +268,13 @@ public static class ReportStrings
             return string.Join(", ", entry.Alternatives.Select(a => a.Name));
         }
 
-        return entry?.Status == SoftwareCompatibilityStatus.Wine ? SoftwareWineNoAlternativeNeeded : SoftwareNoKnownAlternative;
+        return entry?.Status switch
+        {
+            SoftwareCompatibilityStatus.Wine => SoftwareWineNoAlternativeNeeded,
+            SoftwareCompatibilityStatus.BuiltIn => SoftwareBuiltInNoAlternativeNeeded,
+            SoftwareCompatibilityStatus.Partial => SoftwarePartialNoAlternativeNeeded,
+            _ => SoftwareNoKnownAlternative
+        };
     }
 
     /// <summary>The "Muadili Olanlar" table's per-row alternative cell: named alternatives for Equivalent, the browser note for Web.</summary>
@@ -284,6 +294,20 @@ public static class ReportStrings
         var namesPart = JoinTurkish(exampleNames);
         var suffix = remainingCount > 0 ? $" ve {remainingCount} program" : "";
         return $"{namesPart}{suffix} Linux'ta doğrudan çalışıyor.";
+    }
+
+    /// <summary>
+    /// The one-line summary for programs whose job is already a built-in Linux feature — e.g.
+    /// "MSYS2 ve Visual Studio Installer için muadil aramaya gerek yok, bu işlevler Linux'ta
+    /// işletim sisteminin kendi özelliği." Deliberately different wording from
+    /// <see cref="NativeSoftwareSummary"/>: the point is not "this runs on Linux too" but "there is
+    /// nothing missing to look for in the first place".
+    /// </summary>
+    public static string BuiltInSoftwareSummary(IReadOnlyList<string> exampleNames, int remainingCount)
+    {
+        var namesPart = JoinTurkish(exampleNames);
+        var suffix = remainingCount > 0 ? $" ve {remainingCount} program" : "";
+        return $"{namesPart}{suffix} için muadil aramaya gerek yok, bu işlevler Linux'ta işletim sisteminin kendi özelliği.";
     }
 
     private static string JoinTurkish(IReadOnlyList<string> items) => items.Count switch

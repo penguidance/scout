@@ -19,6 +19,26 @@ public enum SoftwareCompatibilityStatus
     /// <summary>No Linux desktop app, but the same product/service works through a browser.</summary>
     Web,
 
+    /// <summary>
+    /// The job this program does is already a built-in feature of Linux itself — there is nothing
+    /// missing to substitute for, so no <see cref="SoftwareCompatibilityEntry.Alternatives"/> are
+    /// ever listed (same convention as <see cref="Native"/>). Example: MSYS2 (brings Unix tools to
+    /// Windows; Linux already has them) or Visual Studio Installer (package management; Linux has
+    /// its distribution's own package manager). Never counts as a problem, regardless of
+    /// <see cref="SoftwareCompatibilityEntry.Importance"/> — see <c>VerdictEngine.Decide</c>.
+    /// </summary>
+    BuiltIn,
+
+    /// <summary>
+    /// The core function (usually hardware) works on Linux, but with real feature loss compared to
+    /// Windows — lighter than <see cref="Blocked"/>, since the program is not simply unusable.
+    /// Example: SteelSeries GG (the keyboard/mouse works as a plain Linux input device; only
+    /// RGB/macro configuration software is missing). Never raises the overall verdict by itself,
+    /// even when <see cref="SoftwareCompatibilityEntry.Importance"/> is Critical — but a Critical
+    /// entry is still always shown in the report.
+    /// </summary>
+    Partial,
+
     /// <summary>Does not work on Linux, and no real substitute exists either.</summary>
     Blocked,
 

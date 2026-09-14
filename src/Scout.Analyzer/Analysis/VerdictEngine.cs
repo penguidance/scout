@@ -168,6 +168,11 @@ public sealed class VerdictEngine
     /// also flagged <see cref="SoftwareImportance.Critical"/> — a blocked minor utility is real
     /// information (still visible per-entry in the report) but should not by itself downgrade an
     /// otherwise-clean machine, the same way a single Unknown device does not.
+    /// <see cref="SoftwareCompatibilityStatus.BuiltIn"/> never reaches this check at all — it is
+    /// not a shortfall, so importance is irrelevant to it. <see cref="SoftwareCompatibilityStatus.Partial"/>
+    /// is deliberately lighter than <see cref="SoftwareCompatibilityStatus.Blocked"/>: the core
+    /// function still works, so it never floors the verdict by itself even when Critical — a
+    /// Critical Partial finding is instead surfaced by staying visible in the report.
     /// </summary>
     private static Verdict FloorFromSoftware(IReadOnlyList<SoftwareAssessment> assessments) =>
         assessments.Any(a =>

@@ -383,11 +383,13 @@ public class VerdictEngineTests
     [InlineData(SoftwareCompatibilityStatus.Wine)]
     [InlineData(SoftwareCompatibilityStatus.Equivalent)]
     [InlineData(SoftwareCompatibilityStatus.Web)]
+    [InlineData(SoftwareCompatibilityStatus.BuiltIn)]
+    [InlineData(SoftwareCompatibilityStatus.Partial)]
     [InlineData(SoftwareCompatibilityStatus.Unknown)]
     public void Decide_CriticalImportanceButNotBlocked_NeverChangesAnOtherwiseReadyResult(SoftwareCompatibilityStatus status)
     {
-        // Importance only matters for a Blocked verdict — critical-but-runs-via-Wine software is
-        // not, by itself, a reason to downgrade the machine's overall verdict.
+        // Importance only matters for a Blocked verdict — critical-but-runs-via-Wine (or BuiltIn/
+        // Partial) software is not, by itself, a reason to downgrade the machine's overall verdict.
         var matches = new[] { Match(SupportLevel.Native) };
         var software = new[] { SoftwareAssessment(status, SoftwareImportance.Critical) };
 

@@ -236,12 +236,13 @@ public sealed class ReportGenerator
         _ => 5
     };
 
-    // ---- Block 5: blocked/Wine-only software — the software equivalent of Block 4 -------------
+    // ---- Block 5: blocked/Wine/Partial software — the software equivalent of Block 4 ----------
 
     private static readonly HashSet<SoftwareCompatibilityStatus> SoftwareProblemStatuses =
     [
         SoftwareCompatibilityStatus.Blocked,
-        SoftwareCompatibilityStatus.Wine
+        SoftwareCompatibilityStatus.Wine,
+        SoftwareCompatibilityStatus.Partial
     ];
 
     private static void AppendSoftwareProblemsSection(StringBuilder sb, AnalysisResult analysis)
@@ -280,9 +281,9 @@ public sealed class ReportGenerator
 
     private static string SoftwareStatusCssClass(SoftwareCompatibilityStatus status) => status switch
     {
-        SoftwareCompatibilityStatus.Native or SoftwareCompatibilityStatus.Web => "good",
+        SoftwareCompatibilityStatus.Native or SoftwareCompatibilityStatus.Web or SoftwareCompatibilityStatus.BuiltIn => "good",
         SoftwareCompatibilityStatus.Equivalent => "warn",
-        SoftwareCompatibilityStatus.Wine => "attention",
+        SoftwareCompatibilityStatus.Wine or SoftwareCompatibilityStatus.Partial => "attention",
         SoftwareCompatibilityStatus.Blocked => "bad",
         SoftwareCompatibilityStatus.Unknown => "unknown",
         _ => "unknown"
@@ -327,7 +328,7 @@ public sealed class ReportGenerator
         sb.Append("    </tbody>\n  </table>\n</section>\n");
     }
 
-    // ---- Block 7: software with a substitute, plus a one-line summary of the rest -------------
+    // ---- Block 7: software with a substitute, plus one-line summaries for Native and BuiltIn ---
 
     private static readonly HashSet<SoftwareCompatibilityStatus> SoftwareEquivalentStatuses =
     [
@@ -349,9 +350,18 @@ public sealed class ReportGenerator
             .OrderBy(a => a.Software.Name, StringComparer.OrdinalIgnoreCase)
             .ToList();
 
-        // Same "say nothing when there is nothing to say" rule as the other sections — if neither
-        // half has anything, the whole card (including an empty summary sentence) is skipped.
-        if (equivalents.Count == 0 && native.Count == 0) return;
+        // BuiltIn gets its own one-line summary, separate from Native's: the message is not "this
+        // program itself runs on Linux" but "the job it does is already an OS feature — no
+        // equivalent to look for at all", which needs different wording (see
+        // ReportStrings.BuiltInSoftwareSummary).
+        var builtIn = analysis.SoftwareAssessments
+            .Where(a => a.Match.Status == SoftwareCompatibilityStatus.BuiltIn)
+            .OrderBy(a => a.Software.Name, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        // Same "say nothing when there is nothing to say" rule as the other sections — if none of
+        // the three groups has anything, the whole card (including an empty summary sentence) is skipped.
+        if (equivalents.Count == 0 && native.Count == 0 && builtIn.Count == 0) return;
 
         sb.Append("<section class=\"card\">\n");
         sb.Append($"  <h2>{Html(ReportStrings.SoftwareEquivalentsSectionTitle)}</h2>\n");
@@ -381,6 +391,15 @@ public sealed class ReportGenerator
             var remaining = native.Count - examples.Count;
 
             sb.Append($"  <p class=\"muted\">{Html(ReportStrings.NativeSoftwareSummary(examples, remaining))}</p>\n");
+        }
+
+        if (builtIn.Count > 0)
+        {
+            const int exampleCount = 3;
+            var examples = builtIn.Take(exampleCount).Select(a => a.Software.Name).ToList();
+            var remaining = builtIn.Count - examples.Count;
+
+            sb.Append($"  <p class=\"muted\">{Html(ReportStrings.BuiltInSoftwareSummary(examples, remaining))}</p>\n");
         }
 
         sb.Append("</section>\n");
