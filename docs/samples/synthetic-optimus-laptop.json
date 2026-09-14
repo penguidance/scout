@@ -1,0 +1,172 @@
+{
+  "schema_version": "0.1",
+  "collector_version": "synthetic",
+  "collected_at": "2026-01-01T12:00:00+00:00",
+  "machine_id": "sha256:synthetic-optimus-laptop",
+  "privacy": {
+    "hostname_included": true,
+    "username_included": false,
+    "serial_numbers_included": false,
+    "redacted_fields": [
+      "system.serial_number"
+    ]
+  },
+  "system": {
+    "manufacturer": "Dell Inc.",
+    "model": "G5 5590",
+    "chassis_type": "Laptop",
+    "hostname": "DESK-OPTIMUS"
+  },
+  "firmware": {
+    "bios_vendor": "Dell Inc.",
+    "bios_version": "1.14.0",
+    "boot_mode": "UEFI",
+    "secure_boot_enabled": true,
+    "tpm": {
+      "present": true,
+      "spec_version": "2.0"
+    }
+  },
+  "cpu": {
+    "vendor": "GenuineIntel",
+    "model": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+    "physical_cores": 6,
+    "logical_processors": 12,
+    "architecture": "x86_64",
+    "x86_64_feature_level": "v3"
+  },
+  "memory": {
+    "total_bytes": 17179869184,
+    "modules": []
+  },
+  "storage": {
+    "disks": [
+      {
+        "disk_number": 0,
+        "media_type": "NVMe",
+        "bus_type": "NVMe",
+        "size_bytes": 512110190592,
+        "model": "WD PC SN730 SDBPNTY-512G",
+        "is_boot_disk": true,
+        "partition_style": "GPT",
+        "partitions": [
+          {
+            "filesystem": "NTFS",
+            "size_bytes": 511610190592,
+            "drive_letter": "C",
+            "bitlocker_status": "NotApplicable",
+            "free_bytes": 255805095296
+          }
+        ]
+      }
+    ],
+    "bitlocker_available": null
+  },
+  "devices": [
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_3E9B",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_3E9B\u0026SUBSYS_09821028\u0026REV_02",
+      "vendor_id": "8086",
+      "device_id": "3E9B",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) UHD Graphics 630",
+      "class": "Display",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_10DE\u0026DEV_1F91",
+      "hardware_id_raw": "PCI\\VEN_10DE\u0026DEV_1F91\u0026SUBSYS_09821028\u0026REV_A1",
+      "vendor_id": "10DE",
+      "device_id": "1F91",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "NVIDIA GeForce GTX 1650",
+      "class": "Display",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_2723",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_2723\u0026SUBSYS_00108086\u0026REV_1A",
+      "vendor_id": "8086",
+      "device_id": "2723",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) Wi-Fi 6 AX200 160MHz",
+      "class": "Net",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_06CB\u0026PID_00BD",
+      "hardware_id_raw": "USB\\VID_06CB\u0026PID_00BD\u0026REV_0101",
+      "vendor_id": "06CB",
+      "device_id": "00BD",
+      "bus_type": "USB",
+      "compatible_ids": [],
+      "friendly_name": "Synaptics FP Sensors (WBDI)",
+      "class": "Biometric",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HDAUDIO\\VEN_10EC\u0026DEV_0899",
+      "hardware_id_raw": "HDAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0899\u0026SUBSYS_10280899",
+      "vendor_id": "10EC",
+      "device_id": "0899",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "Realtek(R) Audio",
+      "class": "MEDIA",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_A36D",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_A36D\u0026SUBSYS_09821028\u0026REV_F0",
+      "vendor_id": "8086",
+      "device_id": "A36D",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) USB 3.1 eXtensible Host Controller",
+      "class": "USB",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_A37F",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_A37F\u0026SUBSYS_09821028\u0026REV_00",
+      "vendor_id": "8086",
+      "device_id": "A37F",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Standard NVM Express Controller",
+      "class": "SCSIAdapter",
+      "status": "OK"
+    }
+  ],
+  "gpu_topology": {
+    "gpus": [
+      {
+        "hardware_id": "PCI\\VEN_8086\u0026DEV_3E9B",
+        "vendor_id": "8086",
+        "device_id": "3E9B",
+        "friendly_name": "Intel(R) UHD Graphics 630"
+      },
+      {
+        "hardware_id": "PCI\\VEN_10DE\u0026DEV_1F91",
+        "vendor_id": "10DE",
+        "device_id": "1F91",
+        "friendly_name": "NVIDIA GeForce GTX 1650"
+      }
+    ],
+    "layout": "Hybrid"
+  },
+  "os": {
+    "edition": "Windows 10 Pro",
+    "version": "10.0.19045",
+    "build": "19045",
+    "display_version": "22H2",
+    "architecture": "x86_64",
+    "language": "tr-TR"
+  },
+  "software": [],
+  "peripherals": [],
+  "collection_errors": []
+}

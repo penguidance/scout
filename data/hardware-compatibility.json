@@ -1,0 +1,189 @@
+[
+  {
+    "vendor_id": "1002",
+    "device_id": null,
+    "device_id_range_start": "6780",
+    "device_id_range_end": "683F",
+    "device_class": null,
+    "kernel_driver": "radeon",
+    "display_name": "Radeon (eski nesil sürücü)",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Bu, AMD'nin 2012 civarı \"Southern Islands\" (GCN 1.0 — Tahiti/Pitcairn/Cape Verde ailesi, örn. Radeon HD 7700/7800/7900) nesli bir ekran kartı. Bu nesil için Linux'ta önerilen ve varsayılan sürücü daha yeni amdgpu değil, daha eski radeon sürücüsüdür — amdgpu bu kartları yalnızca deneysel bir önyükleme parametresiyle destekler ve varsayılan olarak kapalıdır. radeon sürücüsü bu kartlar için tam ve native destek sağlar, ek bir kurulum gerekmez."
+  },
+  {
+    "vendor_id": "1002",
+    "device_id": null,
+    "device_class": "Display",
+    "kernel_driver": "amdgpu",
+    "support": "native",
+    "min_kernel": "4.2",
+    "notes": "Ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "1002",
+    "device_id": "AA01",
+    "device_class": null,
+    "kernel_driver": "snd_hda_intel",
+    "display_name": "HDMI/DisplayPort ses çıkışı",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "1002",
+    "device_id": null,
+    "device_class": "MEDIA",
+    "kernel_driver": "snd_hda_intel",
+    "display_name": "HDMI/DisplayPort ses çıkışı",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "8086",
+    "device_id": null,
+    "device_class": "Display",
+    "kernel_driver": "i915",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Intel ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "8086",
+    "device_id": null,
+    "device_class": "Net",
+    "kernel_driver": "iwlwifi",
+    "support": "firmware_required",
+    "min_kernel": null,
+    "notes": "WiFi kartın tanınır ama çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde kurulum sırasında otomatik yapılır. Kurulum için internet gerekiyorsa, bu adımı tamamlayana kadar geçici olarak kablolu bağlantı kullanman gerekebilir."
+  },
+  {
+    "vendor_id": "8086",
+    "device_id": null,
+    "device_class": "USB",
+    "kernel_driver": "xhci_hcd",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "8086",
+    "device_id": null,
+    "device_class": "SCSIAdapter",
+    "kernel_driver": "nvme",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "10DE",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "nvidia (proprietary) / nouveau (açık kaynak)",
+    "support": "proprietary",
+    "min_kernel": null,
+    "notes": "Ekran kartının tam hızda ve tüm özellikleriyle çalışması için NVIDIA'nın kendi sürücüsünü kurman gerekir — bu genelde dağıtımın kurulum sihirbazından tek tıkla yapılabilir. Bu sürücüyü kurmadan da kart temel düzeyde çalışır, ama performans belirgin şekilde düşük olur ve oyun/video hızlandırma gibi bazı özellikler kullanılamaz."
+  },
+  {
+    "vendor_id": "10EC",
+    "device_id": "8168",
+    "device_class": null,
+    "kernel_driver": "r8169",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Ağ (Ethernet) bağlantın ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "10EC",
+    "device_id": null,
+    "device_class": "MEDIA",
+    "kernel_driver": "snd_hda_codec_realtek",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Ses kartın ek bir kurulum yapmadan çalışır. Nadiren ön panel ses çıkışı gibi bazı bağlantılar ek bir ayar isteyebilir."
+  },
+  {
+    "vendor_id": "14E4",
+    "device_id": "43BA",
+    "device_class": null,
+    "kernel_driver": "brcmfmac",
+    "display_name": "WiFi/Bluetooth (Apple MacBook varyantı)",
+    "support": "partial",
+    "min_kernel": null,
+    "notes": "Bu Broadcom WiFi/Bluetooth çipinin MacBook'a özel firmware kalibrasyon dosyaları standart linux-firmware paketinde yer almaz; genelde macOS bölümünden elle çıkarılıp kopyalanması gerekir. Bu adım atlanırsa WiFi ya hiç çalışmaz ya da düşük performansla/aralıklı çalışır."
+  },
+  {
+    "vendor_id": "14E4",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "brcmfmac (bazı eski modellerde desteklenmez)",
+    "support": "firmware_required",
+    "min_kernel": null,
+    "notes": "WiFi kartının çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde otomatik yapılır. Bazı eski modellerde bu dosya artık desteklenmiyor olabilir — kurulumdan sonra WiFi görünmüyorsa, tam model adını not alıp ayrıca araştırman gerekebilir."
+  },
+  {
+    "vendor_id": "1022",
+    "device_id": null,
+    "device_class": "USB",
+    "kernel_driver": "xhci_hcd",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "1987",
+    "device_id": null,
+    "device_class": "SCSIAdapter",
+    "kernel_driver": "nvme",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "144D",
+    "device_id": null,
+    "device_class": "SCSIAdapter",
+    "kernel_driver": "nvme",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+  },
+  {
+    "vendor_id": "046D",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "usbhid",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Klavye/fare/kulaklık gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya makro tuşlar gibi özel özellikler için ayrı bir program kurman gerekebilir."
+  },
+  {
+    "vendor_id": "1532",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "usbhid",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Klavye/fare gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya DPI ayarı gibi özel özellikler için ayrı bir program (openrazer) kurman gerekebilir."
+  },
+  {
+    "vendor_id": "1038",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "usbhid / snd-usb-audio",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Kulaklık/fare gibi bu çevre birimin temel işleviyle (ses, tuş/düğme girişi) ek bir kurulum yapmadan çalışır. Üreticinin RGB/ekolayzör gibi yazılım özellikleri Linux'ta karşılığı olmayabilir."
+  },
+  {
+    "vendor_id": "USBROOTHUB",
+    "device_id": null,
+    "device_class": null,
+    "kernel_driver": "usbcore",
+    "display_name": "USB kök hub (altyapı)",
+    "support": "native",
+    "min_kernel": null,
+    "notes": "Bu, fiziksel/takılabilir bir aygıt değil; USB denetleyicisinin kendi çekirdek (kök hub) işlevidir. Linux'un USB alt sistemiyle (usbcore) her zaman hazır gelir, hiçbir kurulum gerekmez."
+  }
+]

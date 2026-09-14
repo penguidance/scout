@@ -1,0 +1,888 @@
+{
+  "schema_version": "0.1",
+  "collector_version": "0.1.0",
+  "collected_at": "2026-09-12T13:13:09.9693445+00:00",
+  "machine_id": "sha256:d6cb3fbbefae8c74548d169dc0eb53c619cb15cd1229b439dba9b85cf688aea7",
+  "privacy": {
+    "hostname_included": false,
+    "username_included": false,
+    "serial_numbers_included": false,
+    "redacted_fields": [
+      "system.hostname",
+      "system.serial_number"
+    ]
+  },
+  "system": {
+    "manufacturer": "Micro-Star International Co., Ltd.",
+    "model": "MS-7A38",
+    "chassis_type": "Desktop"
+  },
+  "firmware": {
+    "bios_vendor": "American Megatrends International, LLC.",
+    "bios_version": "B.M0",
+    "bios_release_date": "2024-07-25",
+    "boot_mode": "UEFI",
+    "secure_boot_enabled": true,
+    "tpm": {
+      "present": null
+    }
+  },
+  "cpu": {
+    "vendor": "AuthenticAMD",
+    "model": "AMD Ryzen 5 5600X 6-Core Processor",
+    "physical_cores": 6,
+    "logical_processors": 12,
+    "architecture": "x86_64",
+    "x86_64_feature_level": "v3",
+    "virtualization_firmware_enabled": true
+  },
+  "memory": {
+    "total_bytes": 34359738368,
+    "modules": [
+      {
+        "capacity_bytes": 8589934592,
+        "rated_speed_mhz": 2933,
+        "configured_speed_mhz": 2933,
+        "part_number": "CMK8GX4M1E3200C16",
+        "memory_type": "DDR4",
+        "memory_type_raw": "26"
+      },
+      {
+        "capacity_bytes": 8589934592,
+        "rated_speed_mhz": 2933,
+        "configured_speed_mhz": 2933,
+        "part_number": "CMK8GX4M1E3200C16",
+        "memory_type": "DDR4",
+        "memory_type_raw": "26"
+      },
+      {
+        "capacity_bytes": 8589934592,
+        "rated_speed_mhz": 2933,
+        "configured_speed_mhz": 2933,
+        "part_number": "CMK8GX4M1E3200C16",
+        "memory_type": "DDR4",
+        "memory_type_raw": "26"
+      },
+      {
+        "capacity_bytes": 8589934592,
+        "rated_speed_mhz": 2933,
+        "configured_speed_mhz": 2933,
+        "part_number": "CMK8GX4M1E3200C16",
+        "memory_type": "DDR4",
+        "memory_type_raw": "26"
+      }
+    ]
+  },
+  "storage": {
+    "disks": [
+      {
+        "disk_number": 0,
+        "media_type": "NVMe",
+        "bus_type": "NVMe",
+        "size_bytes": 500107862016,
+        "model": "MSI M450 500GB",
+        "firmware_version": "EJFMC0.0",
+        "is_boot_disk": true,
+        "partition_style": "GPT",
+        "partitions": [
+          {
+            "size_bytes": 104857600,
+            "bitlocker_status": "NotApplicable"
+          },
+          {
+            "size_bytes": 16777216,
+            "bitlocker_status": "NotApplicable"
+          },
+          {
+            "filesystem": "NTFS",
+            "size_bytes": 492946063360,
+            "drive_letter": "C",
+            "bitlocker_status": null,
+            "free_bytes": 143647354880
+          },
+          {
+            "size_bytes": 932184064,
+            "bitlocker_status": "NotApplicable"
+          }
+        ]
+      }
+    ],
+    "bitlocker_available": null
+  },
+  "devices": [
+    {
+      "hardware_id": "USB\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "USB\\VID_046D\u0026PID_C336\u0026REV_0901",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_046D\u0026PID_C336"
+      ],
+      "friendly_name": "G213",
+      "class": "USB",
+      "driver_version": "1.1.84.7627",
+      "driver_date": "2026-02-27",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PRINTENUM\\LocalPrintQueue",
+      "hardware_id_raw": "PRINTENUM\\LocalPrintQueue",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "K\u00F6k Yazd\u0131rma Kuyru\u011Fu",
+      "class": "PrintQueue",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_pppoeminiport",
+      "hardware_id_raw": "ms_pppoeminiport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (PPPOE)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\HID_DEVICE_SYSTEM_VHF",
+      "hardware_id_raw": "HID\\HID_DEVICE_SYSTEM_VHF",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_046D\u0026PID_C336",
+        "HID\\VID_046D\u0026UP:0059_U:0001",
+        "HID_DEVICE_UP:0059_U:0001",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu ayg\u0131t",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HDAUDIO\\VEN_1002\u0026DEV_AA01",
+      "hardware_id_raw": "HDAUDIO\\FUNC_01\u0026VEN_1002\u0026DEV_AA01\u0026SUBSYS_00AA0100\u0026REV_1007",
+      "vendor_id": "1002",
+      "device_id": "AA01",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HDAUDIO\\FUNC_01\u0026VEN_1002\u0026DEV_AA01\u0026SUBSYS_00AA0100"
+      ],
+      "friendly_name": "AMD High Definition Audio Device",
+      "class": "MEDIA",
+      "driver_version": "10.0.1.42",
+      "driver_date": "2025-04-11",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "vms_vsmp",
+      "hardware_id_raw": "vms_vsmp",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "Hyper-V Virtual Switch Extension Adapter",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_1002\u0026DEV_7340",
+      "hardware_id_raw": "PCI\\VEN_1002\u0026DEV_7340\u0026SUBSYS_059B1043\u0026REV_C5",
+      "vendor_id": "1002",
+      "device_id": "7340",
+      "bus_type": "PCI",
+      "compatible_ids": [
+        "PCI\\VEN_1002\u0026DEV_7340\u0026SUBSYS_059B1043",
+        "PCI\\VEN_1002\u0026DEV_7340\u0026CC_030000",
+        "PCI\\VEN_1002\u0026DEV_7340\u0026CC_0300"
+      ],
+      "friendly_name": "AMD Radeon RX 5500 XT",
+      "class": "Display",
+      "driver_version": "32.0.21045.5002",
+      "driver_date": "2026-08-17",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "HID\\VID_1532\u0026PID_0098\u0026MI_00\u0026Col03",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1532\u0026UP:000C_U:0001",
+        "HID_DEVICE_SYSTEM_CONSUMER",
+        "HID_DEVICE_UP:000C_U:0001",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu t\u00FCketici denetimi ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_pptpminiport",
+      "hardware_id_raw": "ms_pptpminiport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (PPTP)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "HID\\VID_046D\u0026PID_C336\u0026REV_0901\u0026MI_01\u0026Col02",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_046D\u0026PID_C336\u0026MI_01\u0026Col02",
+        "HID\\VID_046D\u0026UP:000C_U:0001",
+        "HID_DEVICE_SYSTEM_CONSUMER",
+        "HID_DEVICE_UP:000C_U:0001",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu t\u00FCketici denetimi ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_agilevpnminiport",
+      "hardware_id_raw": "ms_agilevpnminiport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (IKEv2)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_1022\u0026DEV_43D5",
+      "hardware_id_raw": "PCI\\VEN_1022\u0026DEV_43D5\u0026SUBSYS_11421B21\u0026REV_01",
+      "vendor_id": "1022",
+      "device_id": "43D5",
+      "bus_type": "PCI",
+      "compatible_ids": [
+        "PCI\\VEN_1022\u0026DEV_43D5\u0026SUBSYS_11421B21",
+        "PCI\\VEN_1022\u0026DEV_43D5\u0026CC_0C0330",
+        "PCI\\VEN_1022\u0026DEV_43D5\u0026CC_0C03"
+      ],
+      "friendly_name": "AMD USB 3.10 eXtensible Host Controller - 1.10 (Microsoft)",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2026-03-09",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "Root\\Spaceport",
+      "hardware_id_raw": "Root\\Spaceport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "Microsoft Depolama Alanlar\u0131 Denetleyicisi",
+      "class": "SCSIAdapter",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID_DEVICE_SYSTEM_VHF",
+      "hardware_id_raw": "HID_DEVICE_SYSTEM_VHF",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "VHF\\VID_046D\u0026PID_C336"
+      ],
+      "friendly_name": "Sanal HID \u00C7er\u00E7evesi (VHF) HID ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.8972",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "root\\kdnic",
+      "hardware_id_raw": "root\\kdnic",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "Microsoft Kernel Debug Network Adapter",
+      "class": "Net",
+      "driver_version": "10.0.26100.8521",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "Root\\AMDSAFD\u0026FUN_01\u0026REV_01",
+      "hardware_id_raw": "Root\\AMDSAFD\u0026FUN_01\u0026REV_01",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "AMD Streaming Audio Device",
+      "class": "MEDIA",
+      "driver_version": "1.0.0.14",
+      "driver_date": "2024-05-06",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "RZVIRTUAL\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "RZVIRTUAL\\VID_1532\u0026PID_0098\u0026MI_00\u0026Col03",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "HID-compliant consumer control device",
+      "class": "HIDClass",
+      "driver_version": "10.0.15063.0",
+      "driver_date": "2021-03-23",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_10EC\u0026DEV_8168",
+      "hardware_id_raw": "PCI\\VEN_10EC\u0026DEV_8168\u0026SUBSYS_7A381462\u0026REV_15",
+      "vendor_id": "10EC",
+      "device_id": "8168",
+      "bus_type": "PCI",
+      "compatible_ids": [
+        "PCI\\VEN_10EC\u0026DEV_8168\u0026SUBSYS_7A381462",
+        "PCI\\VEN_10EC\u0026DEV_8168\u0026CC_020000",
+        "PCI\\VEN_10EC\u0026DEV_8168\u0026CC_0200"
+      ],
+      "friendly_name": "Realtek PCIe GbE Family Controller",
+      "class": "Net",
+      "driver_version": "10.73.815.2024",
+      "driver_date": "2024-08-15",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\ROOT_HUB30\u0026VID1022\u0026PID149C\u0026REV0000",
+      "hardware_id_raw": "USB\\ROOT_HUB30\u0026VID1022\u0026PID149C\u0026REV0000",
+      "vendor_id": "USBROOTHUB",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\ROOT_HUB30\u0026VID1022\u0026PID149C",
+        "USB\\ROOT_HUB30"
+      ],
+      "friendly_name": "USB K\u00F6k Hub (USB 3.0)",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2026-03-09",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "USB\\VID_1038\u0026PID_12B3\u0026REV_0105\u0026MI_00",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1038\u0026PID_12B3\u0026MI_00"
+      ],
+      "friendly_name": "SteelSeries Arctis 1 Wireless",
+      "class": "MEDIA",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2026-04-09",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\ROOT_HUB30\u0026VID1022\u0026PID43D5\u0026REV0001",
+      "hardware_id_raw": "USB\\ROOT_HUB30\u0026VID1022\u0026PID43D5\u0026REV0001",
+      "vendor_id": "USBROOTHUB",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\ROOT_HUB30\u0026VID1022\u0026PID43D5",
+        "USB\\ROOT_HUB30"
+      ],
+      "friendly_name": "USB K\u00F6k Hub (USB 3.0)",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2026-03-09",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PRINTENUM\\{3ee39114-30b4-45a4-a109-19d4a40fcc22}",
+      "hardware_id_raw": "PRINTENUM\\{3ee39114-30b4-45a4-a109-19d4a40fcc22}",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "PRINTENUM\\LocalPrintQueue",
+        "{3ee39114-30b4-45a4-a109-19d4a40fcc22}"
+      ],
+      "friendly_name": "OneNote (Desktop)",
+      "class": "PrintQueue",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "HID\\VID_046D\u0026PID_C336\u0026REV_0901\u0026MI_01\u0026Col03",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_046D\u0026PID_C336\u0026MI_01\u0026Col03",
+        "HID\\VID_046D\u0026UP:FF43_U:0602",
+        "HID_DEVICE_UP:FF43_U:0602",
+        "HID_DEVICE_UPR:FF00-FFFF",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu sat\u0131c\u0131 taraf\u0131ndan tan\u0131mlanan cihaz",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "HID\\VID_1038\u0026PID_12B3\u0026REV_0105\u0026MI_03\u0026Col01",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1038\u0026PID_12B3\u0026MI_03\u0026Col01",
+        "HID\\VID_1038\u0026UP:000C_U:0001",
+        "HID_DEVICE_SYSTEM_CONSUMER",
+        "HID_DEVICE_UP:000C_U:0001",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu t\u00FCketici denetimi ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_ndiswanbh",
+      "hardware_id_raw": "ms_ndiswanbh",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (Network Monitor)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_ndiswanip",
+      "hardware_id_raw": "ms_ndiswanip",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (IP)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "USB\\VID_046D\u0026PID_C336\u0026REV_0901\u0026MI_00",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_046D\u0026PID_C336\u0026MI_00"
+      ],
+      "friendly_name": "USB Giri\u015F Ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "HID\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_01\u0026Col05",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1532\u0026PID_0098\u0026MI_01\u0026Col05",
+        "HID\\VID_1532\u0026UP:0001_U:0000",
+        "HID_DEVICE_UP:0001_U:0000",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu ayg\u0131t",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "USB\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_00",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1532\u0026PID_0098\u0026MI_00"
+      ],
+      "friendly_name": "USB Giri\u015F Ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "HID\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_01\u0026Col04",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1532\u0026PID_0098\u0026MI_01\u0026Col04",
+        "HID\\VID_1532\u0026UP:0001_U:0000",
+        "HID_DEVICE_UP:0001_U:0000",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu ayg\u0131t",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "HID\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_01\u0026Col03",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1532\u0026PID_0098\u0026MI_01\u0026Col03",
+        "HID\\VID_1532\u0026UP:0001_U:0080",
+        "HID_DEVICE_SYSTEM_CONTROL",
+        "HID_DEVICE_UP:0001_U:0080",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu sistem denetleyicisi",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_sstpminiport",
+      "hardware_id_raw": "ms_sstpminiport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (SSTP)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "HID\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_01\u0026Col02",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1532\u0026PID_0098\u0026MI_01\u0026Col02",
+        "HID\\VID_1532\u0026UP:000C_U:0001",
+        "HID_DEVICE_SYSTEM_CONSUMER",
+        "HID_DEVICE_UP:000C_U:0001",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu t\u00FCketici denetimi ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_1987\u0026DEV_5019",
+      "hardware_id_raw": "PCI\\VEN_1987\u0026DEV_5019\u0026SUBSYS_50191987\u0026REV_01",
+      "vendor_id": "1987",
+      "device_id": "5019",
+      "bus_type": "PCI",
+      "compatible_ids": [
+        "PCI\\VEN_1987\u0026DEV_5019\u0026SUBSYS_50191987",
+        "PCI\\VEN_1987\u0026DEV_5019\u0026CC_010802",
+        "PCI\\VEN_1987\u0026DEV_5019\u0026CC_0108"
+      ],
+      "friendly_name": "Standart NVM Express Denetleyicisi",
+      "class": "SCSIAdapter",
+      "driver_version": "10.0.26100.9278",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "HID\\VID_046D\u0026PID_C336\u0026REV_0901\u0026MI_01\u0026Col04",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_046D\u0026PID_C336\u0026MI_01\u0026Col04",
+        "HID\\VID_046D\u0026UP:FF43_U:0604",
+        "HID_DEVICE_UP:FF43_U:0604",
+        "HID_DEVICE_UPR:FF00-FFFF",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu sat\u0131c\u0131 taraf\u0131ndan tan\u0131mlanan cihaz",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "HID\\VID_1038\u0026PID_12B3\u0026REV_0105\u0026MI_03\u0026Col02",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1038\u0026PID_12B3\u0026MI_03\u0026Col02",
+        "HID\\VID_1038\u0026UP:FF43_U:0202",
+        "HID_DEVICE_UP:FF43_U:0202",
+        "HID_DEVICE_UPR:FF00-FFFF",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu sat\u0131c\u0131 taraf\u0131ndan tan\u0131mlanan cihaz",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HDAUDIO\\VEN_10EC\u0026DEV_0897",
+      "hardware_id_raw": "HDAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0897\u0026SUBSYS_14629A38\u0026REV_1004",
+      "vendor_id": "10EC",
+      "device_id": "0897",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HDAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0897\u0026SUBSYS_14629A38"
+      ],
+      "friendly_name": "Realtek(R) Audio",
+      "class": "MEDIA",
+      "driver_version": "6.0.9768.1",
+      "driver_date": "2024-03-12",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "USB\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_01",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1532\u0026PID_0098\u0026MI_01"
+      ],
+      "friendly_name": "USB Input Device",
+      "class": "HIDClass",
+      "driver_version": "10.0.15063.0",
+      "driver_date": "2021-03-23",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_046D\u0026PID_C336",
+      "hardware_id_raw": "USB\\VID_046D\u0026PID_C336\u0026REV_0901\u0026MI_01",
+      "vendor_id": "046D",
+      "device_id": "C336",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_046D\u0026PID_C336\u0026MI_01"
+      ],
+      "friendly_name": "USB Giri\u015F Ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HID\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "HID\\VID_1038\u0026PID_12B3\u0026REV_0105\u0026MI_03\u0026Col03",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "HID\\VID_1038\u0026PID_12B3\u0026MI_03\u0026Col03",
+        "HID\\VID_1038\u0026UP:FF00_U:0001",
+        "HID_DEVICE_UP:FF00_U:0001",
+        "HID_DEVICE_UPR:FF00-FFFF",
+        "HID_DEVICE"
+      ],
+      "friendly_name": "HID uyumlu sat\u0131c\u0131 taraf\u0131ndan tan\u0131mlanan cihaz",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_1022\u0026DEV_149C",
+      "hardware_id_raw": "PCI\\VEN_1022\u0026DEV_149C\u0026SUBSYS_7A381462\u0026REV_00",
+      "vendor_id": "1022",
+      "device_id": "149C",
+      "bus_type": "PCI",
+      "compatible_ids": [
+        "PCI\\VEN_1022\u0026DEV_149C\u0026SUBSYS_7A381462",
+        "PCI\\VEN_1022\u0026DEV_149C\u0026CC_0C0330",
+        "PCI\\VEN_1022\u0026DEV_149C\u0026CC_0C03"
+      ],
+      "friendly_name": "AMD USB 3.10 eXtensible Host Controller - 1.10 (Microsoft)",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2026-03-09",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PRINTENUM\\{084f01fa-e634-4d77-83ee-074817c03581}",
+      "hardware_id_raw": "PRINTENUM\\{084f01fa-e634-4d77-83ee-074817c03581}",
+      "bus_type": "Other",
+      "compatible_ids": [
+        "PRINTENUM\\LocalPrintQueue",
+        "{084f01fa-e634-4d77-83ee-074817c03581}"
+      ],
+      "friendly_name": "Microsoft Print to PDF",
+      "class": "PrintQueue",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "USB\\VID_1532\u0026PID_0098\u0026REV_0200\u0026MI_02",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1532\u0026PID_0098\u0026MI_02"
+      ],
+      "friendly_name": "Razer DeathAdder Essential",
+      "class": "HIDClass",
+      "driver_version": "6.2.9200.16547",
+      "driver_date": "2017-02-01",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1532\u0026PID_0098",
+      "hardware_id_raw": "USB\\VID_1532\u0026PID_0098\u0026REV_0200",
+      "vendor_id": "1532",
+      "device_id": "0098",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1532\u0026PID_0098"
+      ],
+      "friendly_name": "USB Bile\u015Fik Ayg\u0131t",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "USB\\VID_1038\u0026PID_12B3\u0026REV_0105\u0026MI_03",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1038\u0026PID_12B3\u0026MI_03"
+      ],
+      "friendly_name": "USB Giri\u015F Ayg\u0131t\u0131",
+      "class": "HIDClass",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_1038\u0026PID_12B3",
+      "hardware_id_raw": "USB\\VID_1038\u0026PID_12B3\u0026REV_0105",
+      "vendor_id": "1038",
+      "device_id": "12B3",
+      "bus_type": "USB",
+      "compatible_ids": [
+        "USB\\VID_1038\u0026PID_12B3"
+      ],
+      "friendly_name": "USB Bile\u015Fik Ayg\u0131t",
+      "class": "USB",
+      "driver_version": "10.0.26100.9444",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_ndiswanipv6",
+      "hardware_id_raw": "ms_ndiswanipv6",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (IPv6)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ROOT\\VEN_SSGG\u0026DEV_0001",
+      "hardware_id_raw": "ROOT\\VEN_SSGG\u0026DEV_0001",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "SteelSeries Sonar Virtual Audio Device",
+      "class": "MEDIA",
+      "driver_version": "15.7.9.759",
+      "driver_date": "2026-04-14",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "ms_l2tpminiport",
+      "hardware_id_raw": "ms_l2tpminiport",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "WAN Miniport (L2TP)",
+      "class": "Net",
+      "driver_version": "10.0.26100.1",
+      "driver_date": "2006-06-21",
+      "status": "OK"
+    }
+  ],
+  "gpu_topology": {
+    "gpus": [
+      {
+        "hardware_id": "PCI\\VEN_1002\u0026DEV_7340",
+        "vendor_id": "1002",
+        "device_id": "7340",
+        "friendly_name": "AMD Radeon RX 5500 XT",
+        "driver_version": "32.0.21045.5002"
+      }
+    ],
+    "layout": "Single"
+  },
+  "os": {
+    "edition": "Microsoft Windows 11 Pro",
+    "version": "10.0.26200",
+    "build": "26200",
+    "display_version": "25H2",
+    "install_date": "2025-01-01T03:02:59+03:00",
+    "architecture": "x86_64",
+    "language": "tr-TR"
+  },
+  "software": [],
+  "peripherals": [],
+  "collection_errors": [
+    {
+      "component": "firmware",
+      "source": "Win32_Tpm",
+      "message": "Access denied ",
+      "occurred_at": "2026-09-12T13:13:02.894568+00:00"
+    },
+    {
+      "component": "storage",
+      "source": "Win32_EncryptableVolume",
+      "message": "Access denied ",
+      "occurred_at": "2026-09-12T13:13:09.1113431+00:00"
+    },
+    {
+      "component": "software",
+      "source": "Scout.Collector",
+      "message": "Bu b\u00F6l\u00FCm i\u00E7in toplama mant\u0131\u011F\u0131 hen\u00FCz uygulanmad\u0131.",
+      "occurred_at": "2026-09-12T13:13:09.9690227+00:00"
+    },
+    {
+      "component": "peripherals",
+      "source": "Scout.Collector",
+      "message": "Bu b\u00F6l\u00FCm i\u00E7in toplama mant\u0131\u011F\u0131 hen\u00FCz uygulanmad\u0131.",
+      "occurred_at": "2026-09-12T13:13:09.969023+00:00"
+    }
+  ]
+}

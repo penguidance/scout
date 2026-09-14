@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Linux Mint",
+    "version": "22.1",
+    "download_url": "https://linuxmint.com/download.php",
+    "desktop_environment": "Cinnamon",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 2147483648,
+    "minimum_disk_bytes": 21474836480,
+    "offers_proprietary_driver_installer": true,
+    "lightweight": false,
+    "is_default_choice": true,
+    "recommended_when": "Windows'a benzer bir arayüz isteyen, genel amaçlı kullanıcılar için — kurulumda 'Driver Manager' aracıyla NVIDIA gibi kapalı kaynak sürücüleri de kolayca sunar."
+  },
+  {
+    "name": "Ubuntu",
+    "version": "24.04 LTS",
+    "download_url": "https://ubuntu.com/download/desktop",
+    "desktop_environment": "GNOME",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 4294967296,
+    "minimum_disk_bytes": 26843545600,
+    "offers_proprietary_driver_installer": true,
+    "lightweight": false,
+    "is_default_choice": false,
+    "recommended_when": "En geniş topluluk desteğine ve donanım/yazılım uyumluluğuna sahip genel amaçlı seçenek; kurulum sırasında 'üçüncü taraf yazılım' seçeneğiyle NVIDIA sürücüsünü de sunar."
+  },
+  {
+    "name": "Fedora",
+    "version": "41",
+    "download_url": "https://fedoraproject.org/workstation/download",
+    "desktop_environment": "GNOME",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 4294967296,
+    "minimum_disk_bytes": 21474836480,
+    "offers_proprietary_driver_installer": false,
+    "lightweight": false,
+    "is_default_choice": false,
+    "recommended_when": "Çok yeni donanımlar için en güncel çekirdek/sürücü desteğini isteyenlere uygun; NVIDIA gibi kapalı kaynak sürücüler kurulumda otomatik sunulmaz, RPM Fusion deposu elle eklenmelidir."
+  },
+  {
+    "name": "Debian",
+    "version": "12 (Bookworm)",
+    "download_url": "https://www.debian.org/distrib/",
+    "desktop_environment": "GNOME (kurulum ortamının varsayılanı)",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 2147483648,
+    "minimum_disk_bytes": 10737418240,
+    "offers_proprietary_driver_installer": false,
+    "lightweight": false,
+    "is_default_choice": false,
+    "recommended_when": "En eski/sınırlı donanımlarda bile en yüksek kararlılığı ve uzun vadeli desteği önceliklendirenler için; kapalı kaynak sürücüler için 'non-free' deposu elle eklenmelidir."
+  },
+  {
+    "name": "Xubuntu",
+    "version": "24.04 LTS",
+    "download_url": "https://xubuntu.org/download/",
+    "desktop_environment": "Xfce",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 2147483648,
+    "minimum_disk_bytes": 16106127360,
+    "offers_proprietary_driver_installer": true,
+    "lightweight": true,
+    "is_default_choice": false,
+    "recommended_when": "RAM'i sınırlı makinelerde, masaüstü ortamının kendisi az kaynak tüketsin isteyenler için — resmi bir Ubuntu türevi olduğu için aynı NVIDIA sürücü aracını da sunar."
+  },
+  {
+    "name": "Lubuntu",
+    "version": "24.04 LTS",
+    "download_url": "https://lubuntu.me/downloads/",
+    "desktop_environment": "LXQt",
+    "minimum_feature_level": "v1",
+    "minimum_memory_bytes": 1073741824,
+    "minimum_disk_bytes": 10737418240,
+    "offers_proprietary_driver_installer": true,
+    "lightweight": true,
+    "is_default_choice": false,
+    "recommended_when": "Çok eski ya da son derece sınırlı donanımlarda mümkün olan en hafif deneyim için."
+  }
+]

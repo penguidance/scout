@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.1",
+  "collector_version": "synthetic",
+  "collected_at": "2026-01-01T12:00:00+00:00",
+  "machine_id": "sha256:synthetic-old-radeon",
+  "privacy": {
+    "hostname_included": true,
+    "username_included": false,
+    "serial_numbers_included": false,
+    "redacted_fields": [
+      "system.serial_number"
+    ]
+  },
+  "system": {
+    "manufacturer": "Gigabyte Technology Co., Ltd.",
+    "model": "GA-970A-UD3",
+    "chassis_type": "Desktop",
+    "hostname": "DESK-OLDAMD"
+  },
+  "firmware": {
+    "bios_vendor": "American Megatrends Inc.",
+    "bios_version": "F9",
+    "boot_mode": "Legacy",
+    "tpm": {
+      "present": false
+    }
+  },
+  "cpu": {
+    "vendor": "AuthenticAMD",
+    "model": "AMD FX-8350 Eight-Core Processor",
+    "physical_cores": 8,
+    "logical_processors": 8,
+    "architecture": "x86_64",
+    "x86_64_feature_level": "v2"
+  },
+  "memory": {
+    "total_bytes": 17179869184,
+    "modules": []
+  },
+  "storage": {
+    "disks": [
+      {
+        "disk_number": 0,
+        "media_type": "HDD",
+        "bus_type": "SATA",
+        "size_bytes": 1000204886016,
+        "model": "WDC WD10EZEX-08WN4A0",
+        "is_boot_disk": true,
+        "partition_style": "GPT",
+        "partitions": [
+          {
+            "filesystem": "NTFS",
+            "size_bytes": 999704886016,
+            "drive_letter": "C",
+            "bitlocker_status": "NotApplicable",
+            "free_bytes": 499852443008
+          }
+        ]
+      }
+    ],
+    "bitlocker_available": null
+  },
+  "devices": [
+    {
+      "hardware_id": "PCI\\VEN_1002\u0026DEV_683F",
+      "hardware_id_raw": "PCI\\VEN_1002\u0026DEV_683F\u0026SUBSYS_20521458\u0026REV_00",
+      "vendor_id": "1002",
+      "device_id": "683F",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "AMD Radeon HD 7750",
+      "class": "Display",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_10EC\u0026DEV_8168",
+      "hardware_id_raw": "PCI\\VEN_10EC\u0026DEV_8168\u0026SUBSYS_E0001458\u0026REV_06",
+      "vendor_id": "10EC",
+      "device_id": "8168",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Realtek PCIe GbE Family Controller",
+      "class": "Net",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "HDAUDIO\\VEN_10EC\u0026DEV_0662",
+      "hardware_id_raw": "HDAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0662\u0026SUBSYS_14583602",
+      "vendor_id": "10EC",
+      "device_id": "0662",
+      "bus_type": "Other",
+      "compatible_ids": [],
+      "friendly_name": "Realtek High Definition Audio",
+      "class": "MEDIA",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_1E31",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_1E31\u0026SUBSYS_20521458\u0026REV_04",
+      "vendor_id": "8086",
+      "device_id": "1E31",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) USB 3.0 eXtensible Host Controller",
+      "class": "USB",
+      "status": "OK"
+    }
+  ],
+  "gpu_topology": {
+    "gpus": [
+      {
+        "hardware_id": "PCI\\VEN_1002\u0026DEV_683F",
+        "vendor_id": "1002",
+        "device_id": "683F",
+        "friendly_name": "AMD Radeon HD 7750"
+      }
+    ],
+    "layout": "Single"
+  },
+  "os": {
+    "edition": "Windows 10 Pro",
+    "version": "10.0.19045",
+    "build": "19045",
+    "display_version": "22H2",
+    "architecture": "x86_64",
+    "language": "tr-TR"
+  },
+  "software": [],
+  "peripherals": [],
+  "collection_errors": []
+}

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scout.Core\Scout.Core.csproj" />
+    <ProjectReference Include="..\Scout.Analyzer\Scout.Analyzer.csproj" />
+    <ProjectReference Include="..\Scout.Reporter\Scout.Reporter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Management.Infrastructure" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Lets Scout.Tests unit-test internal helpers (e.g. X86FeatureLevelClassifier) directly,
+         without making them part of this project's public API surface. -->
+    <InternalsVisibleTo Include="Scout.Tests" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+</Project>

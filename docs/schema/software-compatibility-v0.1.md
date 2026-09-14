@@ -1,0 +1,95 @@
+# Software Compatibility Database Schema — v0.1
+
+Bu doküman, `data/software-compatibility.json`'daki her girdinin (`SoftwareCompatibilityEntry`) biçimini ve `SoftwareMatcher`'ın (Scout.Analyzer) bunları nasıl eşleştirdiğini tanımlar. `hardware-compatibility-v0.1.md` ile aynı rolü oynar (profil şeması ne *gözlemlendiğini*, bu doküman Analyzer'ın onu *değerlendirirken* kullandığı referans veriyi tanımlar) ama tamamen ayrı, ilişkisiz bir şemadır: donanım tarafı PCI/USB vendor:device kimlik çiftleriyle eşleşirken, bu taraf kurulu program **adlarıyla** eşleşir — bambaşka bir güvenilirlik ve belirsizlik profili olan bir problem.
+
+Bu sürüm **yalnızca envanterdir**: `Scout.Collector`'ın topladığı `software[]` listesindeki bir programın Linux'ta bir muadili olup olmadığını söyler. Hangi paketin hangi dağıtımda hangi komutla kurulacağı gibi daha ileri bir eşleme bu sürümün kapsamında değildir.
+
+## Alanlar
+
+| Alan | Tip | Açıklama |
+|---|---|---|
+| `match` | object, zorunlu | Bu girdinin bir `SoftwareEntry`'e nasıl eşleştiği — birden fazla sinyalden oluşabilir, en kararlıdan en kararsıza. Aşağıya bakınız. |
+| `match.registry_key` | object?, opsiyonel | `{ "pattern": string, "match_type": "exact"\|"prefix"\|"contains" }`. Doluysa ve `SoftwareEntry.registry_key_name`'e uyuyorsa **tek başına yeterlidir** — ad/yayıncı ayrıca kontrol edilmez. En kararlı sinyal; bkz. "Eşleştirme önceliği" ve "Neden registry anahtarı en kararlı sinyal". |
+| `match.name_aliases` | array, opsiyonel (varsayılan boş) | Bu programın bilinen `DisplayName` yazılışları. Her biri: `{ "pattern": string, "match_type": "exact"\|"prefix"\|"contains", "language": string? }`. Listedeki **ilk** eleman bu satırın yazıldığı özgün yazılış; sonrakiler gerçek bir makinede doğrulanmış alternatif (genelde lokalize) yazılışlardır — bkz. "Neden birden fazla dilde takma ad". `language`, BCP-47 benzeri bir dil etiketidir (örn. `"tr"`); **asla bir filtre değildir**, yalnızca eşit derecede iyi eşleşen adaylar arasında bir yeğleme — bkz. "`language` bir filtre değil, bir yeğlemedir". `registry_key` boşsa bu dizi boş olamaz. |
+| `match.publisher_pattern` | string?, opsiyonel | Doluysa, bir `name_aliases` eşleşmesiyle **birlikte** `SoftwareEntry.publisher` da bu metni içermelidir (büyük/küçük harf duyarsız) — tek başına asla yeterli değildir, ve `match.registry_key` eşleşmesinde hiç kontrol edilmez. `publisher` `null` ise asla eşleşmez ("teyit edilemedi" ≠ "eşleşti varsay"). Bkz. "Neden `publisher` ikincil bir kriter". |
+| `status` | enum, zorunlu | `native` \| `equivalent` \| `wine` \| `web` \| `blocked` — bkz. aşağıdaki tablo. `unknown` bu dosyada asla yazılmaz; yalnızca `SoftwareMatcher`'ın "hiçbir girdi eşleşmedi" sonucu için ayrılmıştır. |
+| `alternatives` | array, opsiyonel (varsayılan boş) | Önerilen muadil program(lar). Her biri: `{ "name": string, "note": string, "technical_name": string? }`. `note`, o **belirli muadil** hakkında tek cümlelik bir bilgi (ücretsiz mi, öğrenme eğrisi var mı) — girdinin genel `notes` alanından ayrıdır. `native` girdilerde her zaman boş. `name` **son kullanıcının tanıyacağı bir ürün adı olmalıdır — asla ham bir paket/GitHub depo adı değil** (bkz. "`alternatives[].name` her zaman tanınabilir olmalı"); `technical_name` yalnızca bakım yapanlar için tutulan, raporda **hiçbir zaman gösterilmeyen** opsiyonel tam teknik kimliktir. |
+| `notes` | string, zorunlu | Kullanıcı diline yazılmış, tek cümlelik açıklama — Scout.Reporter'ın "Sorunlu Programlar" tablosunun "Ne yapmalı?" sütunu **doğrudan bu metni** kullanır, kod içinde ayrıca bir çeviri/özet üretilmez. |
+| `importance` | enum, zorunlu | `critical` \| `normal` \| `minor` — bu program `blocked` çıkarsa **varsayılan** ne kadar ciddi olduğu; bkz. "`importance` bir varsayımdır, bir olgu değil". |
+
+### `status` değerleri
+
+| Değer | Anlamı |
+|---|---|
+| `native` | Üretici bu programın bir Linux sürümünü sağlıyor. |
+| `equivalent` | Linux sürümü yok, ama aynı işi gören **gerçekten farklı** bir program var (`alternatives`). |
+| `wine` | Linux sürümü yok, ama Wine/Proton altında çalıştığı biliniyor (güvenilirlik programa göre değişir). |
+| `web` | Masaüstü Linux uygulaması yok, ama aynı ürün/hizmet tarayıcı üzerinden kullanılabiliyor. |
+| `blocked` | Linux'ta çalışmıyor ve gerçek bir muadili de yok. |
+| `unknown` | *(yalnızca çalışma zamanı sonucu — bu dosyada asla yazılmaz.)* `SoftwareMatcher` hiçbir girdiyi eşleştiremediğinde döner; tahmin yürütülmez. |
+
+## Eşleştirme önceliği (`SoftwareMatcher`)
+
+`DisplayName` kararsız bir sinyaldir: yükleyicinin çalıştığı Windows'un görüntüleme diline göre değişir — aynı program İngilizce bir Windows'ta ve Türkçe bir Windows'ta **bambaşka bir dize** olarak görünebilir, salt bir arayüz çevirisi değil (bkz. "Gerçek bir örnek: Visual Studio Build Tools"). Bu yüzden `SoftwareMatcher`, mevcut sinyalleri güvenilirlik sırasına göre dener:
+
+1. **Registry anahtarı** (`match.registry_key`) — `SoftwareEntry.registry_key_name` doluysa ve bir girdinin `registry_key` deseniyle eşleşiyorsa, **bu tek başına yeterlidir**; ad/yayıncı hiç kontrol edilmez. Birden fazla girdinin `registry_key`'i eşleşirse (beklenmez ama), `exact` türü `prefix`/`contains`'ten önce gelir, kalan eşitlikte **en uzun desen** kazanır. Bu aşamada bir eşleşme bulunursa süreç burada durur — 2. adıma hiç geçilmez.
+2. **Ad + (varsa) yayıncı** — 1. adım hiçbir şey bulamazsa (`registry_key_name` `null`'dır, ya da hiçbir girdinin `registry_key`'i eşleşmez), her girdinin `match.name_aliases` listesindeki **her** takma ad, `SoftwareEntry.name`'e karşı denenir (`exact`: tam eşit, `prefix`: adın başında, `contains`: adın herhangi bir yerinde — hepsi büyük/küçük harf duyarsız). Bir girdinin `publisher_pattern`'i varsa, bu adımda **ayrıca** `SoftwareEntry.publisher`'ın onu içermesi gerekir (bkz. "Neden `publisher` ikincil bir kriter") — yoksa o girdinin hiçbir takma adı aday sayılmaz. Aday takma adlar arasında **`exact` türü her zaman kazanır**; kalanlar arasında **deseni en uzun olan** kazanır; hâlâ eşitlik varsa (bkz. "`language` bir filtre değil, bir yeğlemedir") profilin dil bilgisiyle eşleşen takma ad tercih edilir; o da eşitse veri dosyasındaki sıra belirler — hepsi deterministiktir.
+3. Ne 1. ne 2. adımda bir şey bulunursa sonuç `SoftwareMatchLevel.None` / `SoftwareCompatibilityStatus.Unknown`'dır. Asla tahmin yürütülmez.
+
+Hangi sinyal(ler)in kullanıldığı, `SoftwareMatch.Signals` alanında (`registry_key` / `name` / `alias` / `publisher`) ayrıca kaydedilir ve Scout.Reporter'ın teknik dökümünde gösterilir — bkz. aşağıdaki "Eşleştirme sinyali teşhis içindir".
+
+Yalnızca `SoftwareEntry.category == application` olan envanter girdileri hiç eşleştirilmeye çalışılır — `runtime`/`driver`/`system` kategorisindeki girdiler (bkz. `profile-v0.1.md`) `MachineAnalyzer` tarafından bu aşamaya hiç sokulmaz: bir VC++ Redistributable'ın ya da bir ekran kartı sürücüsünün tek başına bir Linux programı kimliği yoktur.
+
+## Neden registry anahtarı en kararlı sinyal
+
+`SoftwareEntry.registry_key_name` — Uninstall alt anahtarının kendi adı — kurulum anında bir kez yazılır ve Windows'un görüntüleme dili sonradan değişse bile **yeniden çevrilmez**. MSI ile kurulmuş bir program için bu, sabit bir ProductCode GUID'idir; örneğin birçok Microsoft Office ProductCode'u bilinen bir paketleme kuralı gereği hex `"FF1CE"` dizisiyle biter (bkz. `data/software-compatibility.json`'daki klasik/MSI tabanlı `"Microsoft Office"` girdisi). **Dürüstlük notu:** bu kural iyi bilinen bir Microsoft paketleme geleneğidir, ama kendi test makinemizde doğrulanmadı (Office o makinede kurulu değil) ve yalnızca klasik/kalıcı lisanslı (MSI) Office'i kapsar — Click-to-Run "Microsoft 365 Apps" farklı, GUID olmayan bir alt anahtar adlandırması kullanır ve şu an bunun için bir `registry_key` deseni yoktur (`name_aliases`'a düşer).
+
+## Neden birden fazla dilde takma ad
+
+**Gerçek bir örnek:** Türkçe bir Windows kurulumunda "Visual Studio Build Tools 2026" paketi, registry'de `DisplayName` olarak **"Visual Studio Derleme Araçları 2026"** ile kaydediliyor — bu bir arayüz çevirisi değil, `Uninstall` anahtarına yazılan ham dizenin kendisi bu. Yalnızca İngilizce deseni olan bir girdi bu makinede hiç eşleşmeyecekti. Çözüm: `match.name_aliases` birden fazla girdi tutabilir, her biri isteğe bağlı bir `language` etiketiyle:
+
+```json
+"name_aliases": [
+  { "pattern": "Visual Studio Build Tools", "match_type": "contains" },
+  { "pattern": "Visual Studio Derleme Araçları", "match_type": "contains", "language": "tr" }
+]
+```
+
+Bu, ayrı bir "Türkçe Build Tools" veritabanı satırı **değildir** — aynı satırın ikinci bir yazılışıdır, bu yüzden ikisi de aynı `status`/`alternatives`/`notes`/`importance`'ı paylaşır. Şu an yalnızca gerçek bir Türkçe makinede doğrulanan bu tek takma ad var; Almanca/Fransızca/İspanyolca gibi diğer diller için karşılık gelen yazılışlar **tahmin edilmedi** — gerçek bir makinede gözlemlenip doğrulandıkça eklenmeleri bekleniyor (bkz. README'nin donanım profili katkısı istediği bölümüyle aynı ruh).
+
+## `language` bir filtre değil, bir yeğlemedir
+
+`SoftwareMatcher.Match`'in `profileLanguage` parametresi (Analyzer tarafında `profile.os.language`'dan doldurulur) **hiçbir takma adı elemez** — her takma ad, dil bilgisi olsun ya da olmasın her zaman denenir. Yalnızca iki aday eşit derecede iyi eşleştiğinde (aynı `match_type`, aynı desen uzunluğu) bir yeğleme olarak kullanılır: profilin diliyle etiketlenmiş takma ad kazanır. Bunun kasıtlı bir tasarım kararı olmasının nedeni: eksik ya da yanlış bir dil bilgisi **asla** gerçek bir eşleşmeyi atlamamalı. `os.language` `null` olsa bile Türkçe bir takma ad hâlâ denenir ve eşleşirse kullanılır — sadece hangi adayın öne çıkacağına dair ekstra bir ipucu kaybedilmiş olur, bir yetenek değil.
+
+## Eşleştirme sinyali teşhis içindir
+
+`SoftwareMatch.Signals`, hangi kanıtın eşleşmeyi ürettiğini kaydeder (`registry_key` / `name` / `alias` / `publisher` — birden fazlası birlikte olabilir, örn. `[name, publisher]`). Bu, Analyzer'ın kendi karar mantığı için değil, **yanlış bir eşleşmeyi teşhis etmek** içindir: bir program yanlış sınıflandıysa, önce `Signals`'a bakmak (gevşek bir `contains` ad deseniyle mi eşleşti, yoksa kararlı bir registry anahtarıyla mı) veri dosyasında nereye bakılacağını hemen daraltır. Scout.Reporter'ın "Tam Yazılım Envanteri" (folded) tablosunun "Sinyal" sütununda gösterilir.
+
+## Neden tam ad değil, önek/içerir
+
+Yerelleştirme bir yana, bir program adı yıldan yıla, sürümden sürüme de değişir — `"Adobe Photoshop 2021"`, `"...2024"`; `"Microsoft Visual Studio Professional 2022"` gibi bir edition/yıl eki de eklenebilir. Tam ada göre eşleştirme her yeni sürümde veritabanının güncellenmesini gerektirirdi. Bunun yerine çoğu takma ad `contains` (örn. `"Adobe Photoshop"`) ya da `prefix` kullanır; `exact` yalnızca gerçekten sabit, sürümsüz adlar için (örn. `"Git"`) ya da `contains`/`prefix`'in çok geniş kaçacağı durumlar için ayrılmıştır.
+
+**Örtüşen desenler:** `"Microsoft Visual Studio Code"` adı hem `"Visual Studio"` (tam IDE için) hem `"Visual Studio Code"` (VS Code için) desenini içerir — ikisi de `contains` türünde. `SoftwareMatcher`'ın "en uzun desen kazanır" kuralı sayesinde `"Visual Studio Code"` (19 karakter) `"Visual Studio"`'dan (13 karakter) önce gelir, veri dosyasında hangi satırın önce yazıldığından bağımsız olarak — aynı kural, "Visual Studio Build Tools"/"Visual Studio Installer" gibi genel `"Visual Studio"` kuralının yanlışlıkla yakaladığı durumları da ayrı, daha uzun desenli girdiler ekleyerek çözer; ayrı bir "dışlama" mekanizmasına gerek kalmaz. Bkz. [`tests/Scout.Tests/Analyzer/SoftwareMatcherTests.cs`](../../tests/Scout.Tests/Analyzer/SoftwareMatcherTests.cs).
+
+## Neden `publisher` ikincil bir kriter
+
+Bazı program adları sıradan İngilizce kelimelerdir — `"Origin"` (EA'nın eski oyun istemcisi) buna iyi bir örnek: bu kelime tamamen ilgisiz bir yazılımın adında da geçebilir. `match.publisher_pattern: "Electronic Arts"` eklemek, adı "Origin" olan ama yayıncısı EA olmayan bir programın yanlışlıkla eşleşmesini engeller. `publisher` ile ilgili iki kural:
+
+- `publisher_pattern` **tek başına asla yeterli değildir** — bir `name_aliases` eşleşmesi her zaman ayrıca gereklidir, ve `match.registry_key` eşleşmesinde hiç kontrol edilmez.
+- `SoftwareEntry.publisher` `null` ise (registry'de bu alan hiç set edilmemiş), bir `publisher_pattern` gereksinimi **asla** karşılanmış sayılmaz — "teyit edilemedi", "eşleşti varsay" ile karıştırılmaz.
+
+## `alternatives[].name` her zaman tanınabilir olmalı
+
+Bir muadil önerisi, adı sıradan bir kullanıcının anlayamayacağı bir teknik tanımlayıcıysa (örn. bir GitHub `org/repo` yolu gibi `"abraunegg/onedrive"`) işe yaramaz — okuyan kişi bunun ne olduğunu bilmez. Kural: `name` her zaman gerçek, tanınabilir bir ürün adı olmalı (örn. `"OneDrive Client for Linux"`); paket/depo düzeyindeki tam kimlik gerekiyorsa `technical_name`'e konur, rapor asla `technical_name`'i göstermez, yalnızca `name`'i gösterir. `"Ark/File Roller"` gibi "şu ikisinden biri" biçimindeki gerçek ürün adı listeleri bu kuralı ihlal etmez — bkz. [`tests/Scout.Tests/Analyzer/RealSoftwareDatabaseBehaviorTests.cs`](../../tests/Scout.Tests/Analyzer/RealSoftwareDatabaseBehaviorTests.cs)'teki `LoadEmbedded_NoAlternativeNameLooksLikeAGitHubRepositorySlug` testi (repo-yolu şeklini boşluksuz/küçük-harf `kelime/kelime` deseniyle ayırt eder).
+
+## `importance` bir varsayımdır, bir olgu değil
+
+`importance`, bir program `blocked` çıkarsa bunun *genellikle* ne kadar ciddi olduğuna dair kürasyonlu bir varsayılan değerdir — belirli bir kullanıcı için kesin bir yargı değil. Photoshop bir grafik tasarımcı için `critical`'dır, hiç açmayan biri için önemsizdir; buradaki `critical` etiketi "bunu kuran biri için, engellenmesi genelde ciddi bir sorundur" anlamına gelir, "her Windows kullanıcısı için kritiktir" değil. Kullanıcı bunu kendi bağlamına göre sonradan düzeltebilir (bu sürümde henüz bir arayüzü yok).
+
+`importance` **yalnızca `blocked` durumuyla birlikte** verdiği anlam taşır — bkz. `VerdictEngine.Decide`: `blocked` + `critical` bir program varsa genel verdict en az `needs_attention`'a yükselir; `wine`/`equivalent`/`web` durumundaki `critical` bir program (çalışıyor olması nedeniyle) verdict'i tek başına etkilemez.
+
+## Sürüm notları
+
+- **v0.1 (revizyon 2)** — Yerelleştirme sorunu yapısal olarak çözüldü: `DisplayName`'in tek eşleştirme sinyali olması Türkçe/Almanca/Fransızca/İspanyolca gibi İngilizce olmayan Windows kurulumlarında sistemik olarak yanlış sonuç verecekti (bir önceki revizyonda Build Tools için elle eklenen tek satırlık Türkçe düzeltme, sorunun yalnızca bir belirtisiydi). `match.name_pattern`/`match_type` düz alanları kaldırıldı; yerine `match.name_aliases[]` (her biri kendi `match_type`'ı ve isteğe bağlı `language` etiketiyle birden fazla yazılış taşıyabilen bir dizi) ve yeni, en kararlı sinyal olan `match.registry_key` (Uninstall alt anahtarının kendi adına karşı — asla yeniden çevrilmez) geldi. `SoftwareMatch.Signals` eklendi (`registry_key`/`name`/`alias`/`publisher`) ve Scout.Reporter'ın teknik dökümünde yeni bir "Sinyal" sütununda gösteriliyor — teşhis amaçlı. Bu vesileyle `SoftwareEntry`'e `registry_key_name` ve `install_location` eklendi (bkz. `profile-v0.1.md` revizyon 6). Elle eklenen Türkçe "Visual Studio Derleme Araçları" artık ayrı bir satır değil, İngilizce Build Tools girdisinin `language: "tr"` etiketli ikinci bir takma adı. Microsoft Office'e, kalıcı/MSI lisanslarını dil bağımsız tanıyan bir `registry_key` (`"FF1CE"` konvansiyonu) eklendi — dürüstçe belirtilmeli: kendi test makinemizde doğrulanamadı (Office kurulu değil), iyi bilinen bir paketleme geleneğine dayanıyor.
+- **v0.1 (revizyon)** — 72 girdiye çıkarıldı: gerçek bir makinede gözlemlenen, önceden `unknown` çıkan programlardan emin olunanlar eklendi (Audacity, Python, Node.js, MSYS2, PowerShell 7, Java, µTorrent/uTorrent, CPU-Z, AIDA64, Razer Synapse, SteelSeries GG, Corsair iCUE, Logitech G HUB, GnuPG/Gpg4win, .NET SDK) ve oyun platformu kapsamı genişletildi (GOG Galaxy, eski Origin/Uplay adları). İki gerçek hata düzeltildi: (1) genel `"Visual Studio"` (contains) kuralı "Visual Studio Build Tools" ve "Visual Studio Installer"i de yanlışlıkla IDE muadili (Rider/VS Code) olarak yakalıyordu — her ikisi için, "en uzun desen kazanır" kuralı sayesinde otomatik önceliklenen, daha uzun/özel desenli ayrı girdiler eklendi (ayrı bir "exclude" mekanizmasına gerek kalmadı). (2) OneDrive'ın muadil listesindeki `"abraunegg/onedrive"` (bir GitHub depo yolu) `"OneDrive Client for Linux"` ile değiştirildi; bu vesileyle `alternatives[].technical_name` (opsiyonel, raporda hiç gösterilmeyen) alanı eklendi — bkz. "`alternatives[].name` her zaman tanınabilir olmalı".
+- **v0.1** — İlk sürüm: 50 kürasyonlu başlangıç girdisi (tarayıcılar, Office paketi, Adobe ürünleri, medya oynatıcılar, sıkıştırma araçları, iletişim uygulamaları, geliştirici araçları, antivirüs, oyun platformları, muhasebe/vergi yazılımları, bulut depolama). Yalnızca gerçekten emin olunan girdiler eklendi — yanlış bilgi vermektense bir programı hiç eklememek tercih edildi; kapsam zamanla genişletilecek.

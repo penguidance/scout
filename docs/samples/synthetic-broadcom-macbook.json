@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1",
+  "collector_version": "synthetic",
+  "collected_at": "2026-01-01T12:00:00+00:00",
+  "machine_id": "sha256:synthetic-broadcom-macbook",
+  "privacy": {
+    "hostname_included": true,
+    "username_included": false,
+    "serial_numbers_included": false,
+    "redacted_fields": [
+      "system.serial_number"
+    ]
+  },
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "MacBookPro12,1",
+    "chassis_type": "Laptop",
+    "hostname": "DESK-MACBOOK"
+  },
+  "firmware": {
+    "bios_vendor": "Apple Inc.",
+    "bios_version": "MBP121.88Z.0167.B00.1810221759",
+    "boot_mode": "UEFI",
+    "secure_boot_enabled": false,
+    "tpm": {
+      "present": false
+    }
+  },
+  "cpu": {
+    "vendor": "GenuineIntel",
+    "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+    "physical_cores": 2,
+    "logical_processors": 4,
+    "architecture": "x86_64",
+    "x86_64_feature_level": "v3"
+  },
+  "memory": {
+    "total_bytes": 8589934592,
+    "modules": []
+  },
+  "storage": {
+    "disks": [
+      {
+        "disk_number": 0,
+        "media_type": "SSD",
+        "bus_type": "SATA",
+        "size_bytes": 251000193024,
+        "model": "APPLE SSD SM0256G",
+        "is_boot_disk": true,
+        "partition_style": "GPT",
+        "partitions": [
+          {
+            "filesystem": "NTFS",
+            "size_bytes": 250500193024,
+            "drive_letter": "C",
+            "bitlocker_status": "NotApplicable",
+            "free_bytes": 125250096512
+          }
+        ]
+      }
+    ],
+    "bitlocker_available": null
+  },
+  "devices": [
+    {
+      "hardware_id": "PCI\\VEN_14E4\u0026DEV_43BA",
+      "hardware_id_raw": "PCI\\VEN_14E4\u0026DEV_43BA\u0026SUBSYS_92A114E4\u0026REV_03",
+      "vendor_id": "14E4",
+      "device_id": "43BA",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Broadcom 802.11ac Network Adapter",
+      "class": "Net",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_1626",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_1626\u0026SUBSYS_00001028\u0026REV_09",
+      "vendor_id": "8086",
+      "device_id": "1626",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) HD Graphics 6000",
+      "class": "Display",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_9CB1",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_9CB1\u0026SUBSYS_00001028\u0026REV_03",
+      "vendor_id": "8086",
+      "device_id": "9CB1",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Intel(R) USB 3.0 eXtensible Host Controller",
+      "class": "USB",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "PCI\\VEN_8086\u0026DEV_9C03",
+      "hardware_id_raw": "PCI\\VEN_8086\u0026DEV_9C03\u0026SUBSYS_00001028\u0026REV_03",
+      "vendor_id": "8086",
+      "device_id": "9C03",
+      "bus_type": "PCI",
+      "compatible_ids": [],
+      "friendly_name": "Standard NVM Express Controller",
+      "class": "SCSIAdapter",
+      "status": "OK"
+    },
+    {
+      "hardware_id": "USB\\VID_05AC\u0026PID_0273",
+      "hardware_id_raw": "USB\\VID_05AC\u0026PID_0273\u0026REV_0224",
+      "vendor_id": "05AC",
+      "device_id": "0273",
+      "bus_type": "USB",
+      "compatible_ids": [],
+      "friendly_name": "Apple Multitouch Trackpad",
+      "class": "HIDClass",
+      "status": "OK"
+    }
+  ],
+  "gpu_topology": {
+    "gpus": [
+      {
+        "hardware_id": "PCI\\VEN_8086\u0026DEV_1626",
+        "vendor_id": "8086",
+        "device_id": "1626",
+        "friendly_name": "Intel(R) HD Graphics 6000"
+      }
+    ],
+    "layout": "Single"
+  },
+  "os": {
+    "edition": "Windows 10 Home",
+    "version": "10.0.19045",
+    "build": "19045",
+    "display_version": "22H2",
+    "architecture": "x86_64",
+    "language": "tr-TR"
+  },
+  "software": [],
+  "peripherals": [],
+  "collection_errors": []
+}

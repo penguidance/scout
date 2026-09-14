@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linux Uyumluluk Raporu — Micro-Star International Co., Ltd. MS-7A38</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f4f7;
+  --card-bg: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6b6b70;
+  --border: #e6e6ea;
+  --good-bg: #e8f5e9; --good-fg: #1b5e20;
+  --warn-bg: #fff8e1; --warn-fg: #7a5c00;
+  --attention-bg: #fff3e0; --attention-fg: #8a4b00;
+  --bad-bg: #fdecea; --bad-fg: #8e1c14;
+  --unknown-bg: #eeeeee; --unknown-fg: #424242;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.verdict {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.verdict-headline {
+  margin: 0 0 .5rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+}
+
+.verdict-reason {
+  margin: 0;
+  font-size: 1.05rem;
+  opacity: .85;
+}
+
+.verdict-good { background: var(--good-bg); color: var(--good-fg); }
+.verdict-warn { background: var(--warn-bg); color: var(--warn-fg); }
+.verdict-attention { background: var(--attention-bg); color: var(--attention-fg); }
+.verdict-bad { background: var(--bad-bg); color: var(--bad-fg); }
+.verdict-unknown { background: var(--unknown-bg); color: var(--unknown-fg); }
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  text-align: left;
+  padding: .55rem .6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .92rem;
+  vertical-align: top;
+}
+
+thead th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .02em; }
+
+table.kv th { width: 11rem; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .85em;
+  background: var(--bg);
+  padding: .1em .35em;
+  border-radius: 4px;
+}
+
+.badge {
+  display: inline-block;
+  padding: .2em .6em;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-good { background: var(--good-bg); color: var(--good-fg); }
+.badge-warn { background: var(--warn-bg); color: var(--warn-fg); }
+.badge-attention { background: var(--attention-bg); color: var(--attention-fg); }
+.badge-bad { background: var(--bad-bg); color: var(--bad-fg); }
+.badge-unknown { background: var(--unknown-bg); color: var(--unknown-fg); }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: .1rem 0;
+}
+
+details[open] summary { margin-bottom: .75rem; }
+
+.muted { color: var(--muted); font-size: .88rem; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: .82rem;
+  padding: 1rem 1.5rem 2rem;
+}
+</style>
+</head>
+<body>
+<header class="verdict verdict-good">
+  <p class="verdict-headline">Bu bilgisayar Linux'a taşınabilir.</p>
+  <p class="verdict-reason">İncelenen 10 donanım Linux çekirdeğinde hazır olarak bulunuyor, herhangi bir sorun tespit edilmedi.</p>
+</header>
+<div class="container">
+<section class="card">
+  <details>
+    <summary>Tam Teknik Döküm (12)</summary>
+    <p class="muted">Ayrıca 37 cihaz bu değerlendirme dışında bırakıldı (18 Linux uyumluluğu açısından anlamsız, 19 aynı donanımın tekrar eden kaydı).</p>
+    <table>
+      <thead><tr><th>Cihaz</th><th>Vendor:Device</th><th>Sınıf</th><th>Linux Sürücüsü</th><th>Eşleşme</th><th>Destek</th></tr></thead>
+      <tbody>
+        <tr><td>AMD Radeon RX 5500 XT</td><td><code>1002:7340</code></td><td>Display</td><td><code>amdgpu</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>HID uyumlu satıcı tarafından tanımlanan cihaz</td><td><code>046D:C336</code></td><td>HIDClass</td><td><code>usbhid</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>HID uyumlu satıcı tarafından tanımlanan cihaz</td><td><code>1038:12B3</code></td><td>HIDClass</td><td><code>usbhid / snd-usb-audio</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>HID-compliant consumer control device</td><td><code>1532:0098</code></td><td>HIDClass</td><td><code>usbhid</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>AMD High Definition Audio Device</td><td><code>1002:AA01</code></td><td>MEDIA</td><td>HDMI/DisplayPort ses çıkışı</td><td>Tam eşleşme</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>Realtek(R) Audio</td><td><code>10EC:0897</code></td><td>MEDIA</td><td><code>snd_hda_codec_realtek</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>Realtek PCIe GbE Family Controller</td><td><code>10EC:8168</code></td><td>Net</td><td><code>r8169</code></td><td>Tam eşleşme</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>Standart NVM Express Denetleyicisi</td><td><code>1987:5019</code></td><td>SCSIAdapter</td><td><code>nvme</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>AMD USB 3.10 eXtensible Host Controller - 1.10 (Microsoft)</td><td><code>1022:43D5</code></td><td>USB</td><td><code>xhci_hcd</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>AMD USB 3.10 eXtensible Host Controller - 1.10 (Microsoft)</td><td><code>1022:149C</code></td><td>USB</td><td><code>xhci_hcd</code></td><td>Üretici bazlı genel kural</td><td><span class="badge badge-good">Sorunsuz çalışır</span></td></tr>
+        <tr><td>USB Kök Hub (USB 3.0)</td><td><code>—</code></td><td>USB</td><td><code>—</code></td><td>Eşleşme yok</td><td><span class="badge badge-unknown">Bilinmiyor</span></td></tr>
+        <tr><td>USB Kök Hub (USB 3.0)</td><td><code>—</code></td><td>USB</td><td><code>—</code></td><td>Eşleşme yok</td><td><span class="badge badge-unknown">Bilinmiyor</span></td></tr>
+      </tbody>
+    </table>
+  </details>
+</section>
+<section class="card">
+  <h2>Sistem Özeti</h2>
+  <table class="kv">
+    <tbody>
+      <tr><th>İşlemci</th><td>AuthenticAMD AMD Ryzen 5 5600X 6-Core Processor<br><span class="muted">6 çekirdek / 12 iş parçacığı</span></td></tr>
+      <tr><th>Mimari</th><td>x86_64 (64-bit) — mikromimari seviyesi v3</td></tr>
+      <tr><th>Bellek</th><td>32 GB</td></tr>
+      <tr><th>Disk</th><td>MSI M450 500GB — 466 GB (NVMe SSD)</td></tr>
+      <tr><th>Önyükleme Modu</th><td>UEFI</td></tr>
+      <tr><th>Secure Boot</th><td>Var</td></tr>
+      <tr><th>TPM</th><td>Var (TPM 2.0)</td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+<footer>Scout Analyzer tarafından 2026-09-12 00:04 UTC'de üretildi.</footer>
+</body>
+</html>

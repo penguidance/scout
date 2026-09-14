@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scout.Core\Scout.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The hand-edited source of truth lives at /data/hardware-compatibility.json (repo root)
+         so it's easy to find and diff; embedding it here means the library carries its own copy
+         and callers never need to know or guess a working-directory-relative path at runtime. -->
+    <EmbeddedResource Include="..\..\data\hardware-compatibility.json" LogicalName="hardware-compatibility.json" />
+    <!-- Same convention, for the software (installed-program) compatibility database. -->
+    <EmbeddedResource Include="..\..\data\software-compatibility.json" LogicalName="software-compatibility.json" />
+    <!-- Same convention, for the curated distribution-recommendation database. -->
+    <EmbeddedResource Include="..\..\data\distributions.json" LogicalName="distributions.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

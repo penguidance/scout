@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Management.Infrastructure" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Scout.Core\Scout.Core.csproj" />
+    <ProjectReference Include="..\..\src\Scout.Analyzer\Scout.Analyzer.csproj" />
+    <ProjectReference Include="..\..\src\Scout.Collector\Scout.Collector.csproj" />
+    <ProjectReference Include="..\..\src\Scout.Reporter\Scout.Reporter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Reference profiles used by the Analyzer integration tests; copied next to the test
+         binaries so tests never depend on the working directory the test runner was launched from. -->
+    <None Include="..\..\docs\samples\*.json" CopyToOutputDirectory="PreserveNewest" LinkBase="samples" />
+  </ItemGroup>
+
+</Project>

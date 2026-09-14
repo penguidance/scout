@@ -1,0 +1,1283 @@
+[
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Google Chrome",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Google"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Google resmi bir Linux sürümü (.deb/.rpm) sağlıyor; doğrudan kurulup kullanılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Mozilla Firefox",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Firefox'un Linux sürümü var, çoğu dağıtımda zaten hazır gelir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft Edge",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Microsoft"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Microsoft, Edge'in resmi bir Linux sürümünü (.deb/.rpm) sağlıyor.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Opera",
+          "match_type": "prefix"
+        }
+      ],
+      "publisher_pattern": "Opera"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Opera'nın resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Brave",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Brave"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Brave'in resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft Office",
+          "match_type": "contains"
+        }
+      ],
+      "registry_key": {
+        "pattern": "FF1CE",
+        "match_type": "contains"
+      }
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "LibreOffice",
+        "note": "Ücretsiz ve açık kaynak; çoğu dağıtımda hazır gelir. Karmaşık makrolar/şablonlar tam uyumlu olmayabilir."
+      },
+      {
+        "name": "OnlyOffice",
+        "note": "Ücretsiz sürümü var; Microsoft Office dosya biçimlerine görünüm/uyum açısından LibreOffice'ten daha yakın."
+      }
+    ],
+    "notes": "Microsoft Office'in Linux sürümü yok; belge/e-tablo/sunum için LibreOffice ya da OnlyOffice kullanılabilir, ya da Office 365 aboneliğin varsa tarayıcı üzerinden web sürümüne erişebilirsin.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft 365 Apps",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "LibreOffice",
+        "note": "Ücretsiz ve açık kaynak; çoğu dağıtımda hazır gelir."
+      },
+      {
+        "name": "OnlyOffice",
+        "note": "Ücretsiz sürümü var; Microsoft dosya biçimlerine daha yakın görünüm sunar."
+      }
+    ],
+    "notes": "Microsoft 365'in masaüstü uygulamalarının Linux sürümü yok; LibreOffice/OnlyOffice kullanılabilir, ya da aboneliğin varsa tarayıcı üzerinden web sürümüne erişebilirsin.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft Outlook",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Thunderbird",
+        "note": "Ücretsiz, açık kaynak; e-posta ve takvimi bir arada destekler."
+      }
+    ],
+    "notes": "Outlook'un Linux sürümü yok; e-posta ve takvim için Thunderbird kullanılabilir, ya da Outlook web (outlook.com) tarayıcıdan erişilebilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft Teams",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "web",
+    "alternatives": [],
+    "notes": "Microsoft, Teams'in Linux masaüstü uygulamasını 2022 sonunda kaldırdı; Linux'ta tarayıcı üzerinden teams.microsoft.com adresine girerek kullanman gerekiyor.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Slack",
+          "match_type": "prefix"
+        }
+      ],
+      "publisher_pattern": "Slack"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Slack'in resmi bir Linux sürümü (.deb/.rpm) var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Discord",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Discord'un resmi bir Linux sürümü var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Zoom",
+          "match_type": "prefix"
+        }
+      ],
+      "publisher_pattern": "Zoom"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Zoom'un resmi bir Linux sürümü (.deb/.rpm) var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "WhatsApp",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "web",
+    "alternatives": [],
+    "notes": "WhatsApp'ın resmi bir Linux masaüstü uygulaması yok; web.whatsapp.com üzerinden tarayıcıda kullanılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Telegram Desktop",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Telegram'ın resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Signal",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Signal Messenger"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Signal'ın resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "VLC",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "VideoLAN"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "VLC'nin Linux sürümü var; çoğu dağıtımda doğrudan kurulabilir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Spotify",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Spotify'ın resmi bir Linux sürümü var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "iTunes",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Apple"
+    },
+    "status": "blocked",
+    "alternatives": [],
+    "notes": "iTunes'un Linux sürümü yok ve tam bir muadili de yok; müzik çalma için VLC/Rhythmbox kullanılabilir ama iPhone/iPad senkronizasyonu Linux'ta güvenilir şekilde çalışmaz.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "WinRAR",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "PeaZip",
+        "note": "Ücretsiz; RAR dahil çoğu arşiv biçimini açabilir, Linux sürümü var."
+      },
+      {
+        "name": "Arşiv Yöneticisi (Ark/File Roller)",
+        "note": "Çoğu dağıtımla hazır gelir; RAR açmak için ek bir paket (unrar) gerekebilir."
+      }
+    ],
+    "notes": "WinRAR'ın Linux sürümü yok; RAR/ZIP/7z gibi arşivleri açıp oluşturmak için dağıtımın kendi arşiv yöneticisi ya da PeaZip yeterli.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "7-Zip",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Arşiv Yöneticisi",
+        "note": "Çoğu dağıtımda hazır gelir; p7zip paketiyle .7z formatını destekler.",
+        "technical_name": "p7zip"
+      },
+      {
+        "name": "PeaZip",
+        "note": "Ücretsiz; 7z dahil çoğu arşiv biçimini destekler."
+      }
+    ],
+    "notes": "7-Zip'in kendisi Windows'a özgü ama aynı .7z biçimini destekleyen p7zip Linux'ta mevcut.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Visual Studio Code",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "VS Code'un resmi bir Linux sürümü (.deb/.rpm) var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Git",
+          "match_type": "exact"
+        }
+      ],
+      "publisher_pattern": "Git"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Git, Linux'ta yerleşik olarak (ya da tek komutla) mevcuttur.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Docker Desktop",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Linux'ta Docker Desktop'a gerek yok — Docker Engine doğrudan (sanal makine katmanı olmadan, Windows/Mac'ten daha hafif şekilde) çalışır.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Visual Studio",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Microsoft"
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "JetBrains Rider",
+        "note": "Ücretli; .NET geliştirme için güçlü Linux desteği sunar."
+      },
+      {
+        "name": "Visual Studio Code",
+        "note": "Ücretsiz; farklı bir ürün (tam IDE değil) ama eklentilerle .NET geliştirmeye uyarlanabilir."
+      }
+    ],
+    "notes": "Visual Studio'nun (tam IDE) Linux sürümü yok; .NET geliştirme için Rider ya da eklentilerle genişletilmiş VS Code kullanılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Android Studio",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Android Studio'nun resmi bir Linux sürümü var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "PyCharm",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "JetBrains"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "JetBrains, PyCharm'ın resmi bir Linux sürümünü sağlıyor.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "IntelliJ IDEA",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "JetBrains"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "JetBrains, IntelliJ IDEA'nın resmi bir Linux sürümünü sağlıyor.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Postman",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Postman'ın resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Notepad++",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Visual Studio Code",
+        "note": "Ücretsiz; Notepad++'a göre daha kapsamlı ama benzer düzenleme deneyimi sunar."
+      },
+      {
+        "name": "Geany",
+        "note": "Ücretsiz, hafif; Notepad++'a daha yakın basit bir düzenleyici deneyimi."
+      }
+    ],
+    "notes": "Notepad++ Windows'a özgü bir uygulama; Linux'ta VS Code ya da Geany gibi hafif düzenleyiciler benzer işi görür.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Norton",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "ClamAV",
+        "note": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
+      }
+    ],
+    "notes": "Norton'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "McAfee",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "ClamAV",
+        "note": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
+      }
+    ],
+    "notes": "McAfee'nin Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Avast",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "ClamAV",
+        "note": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
+      }
+    ],
+    "notes": "Avast'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Kaspersky",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "ClamAV",
+        "note": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
+      }
+    ],
+    "notes": "Kaspersky'nin Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Bitdefender",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "ClamAV",
+        "note": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
+      }
+    ],
+    "notes": "Bitdefender'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Steam",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Valve"
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Steam'in resmi bir Linux sürümü var; Proton uyumluluk katmanı sayesinde birçok Windows oyunu da Linux'ta çalışabiliyor (oyun bazında değişir).",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Epic Games Launcher",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Heroic Games Launcher",
+        "note": "Ücretsiz, açık kaynak; Epic Games mağazasına Linux üzerinden erişim ve oyun kurulumu sağlar."
+      }
+    ],
+    "notes": "Epic Games Launcher'ın resmi bir Linux sürümü yok; Heroic Games Launcher aynı mağazaya Linux'tan erişim sağlıyor.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Battle.net",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": "Battle.net'in Linux sürümü yok; Lutris/Wine üzerinden çalıştırılabiliyor ama oyun bazında uyumluluk değişir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "EA app",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Electronic Arts"
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": "EA app'in Linux sürümü yok; Lutris/Wine üzerinden çalıştırılabiliyor ama oyun bazında uyumluluk değişir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Ubisoft Connect",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": "Ubisoft Connect'in Linux sürümü yok; Lutris/Wine üzerinden çalıştırılabiliyor ama oyun bazında uyumluluk değişir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "QuickBooks",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Intuit"
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "QuickBooks Online",
+        "note": "Aynı üreticiden ayrı bir abonelik; tarayıcı üzerinden Linux'ta da kullanılabilir."
+      },
+      {
+        "name": "GnuCash",
+        "note": "Ücretsiz, açık kaynak muhasebe yazılımı; QuickBooks Desktop ile bire bir aynı iş akışı değil."
+      }
+    ],
+    "notes": "QuickBooks Desktop'ın Linux sürümü yok. QuickBooks Online (ayrı bir abonelik) tarayıcıdan kullanılabilir; ücretsiz bir açık kaynak seçenek için GnuCash denenebilir.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "TurboTax",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Intuit"
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "TurboTax (web)",
+        "note": "Aynı üreticinin tarayıcı üzerinden çalışan çevrimiçi sürümü; masaüstü sürümle bire bir aynı olmayabilir."
+      }
+    ],
+    "notes": "TurboTax masaüstü uygulamasının Linux sürümü yok; üreticinin web tabanlı çevrimiçi sürümü tarayıcıdan kullanılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Adobe Photoshop",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "GIMP",
+        "note": "Ücretsiz, açık kaynak; güçlü ama Photoshop'a göre farklı bir arayüz/öğrenme eğrisi var."
+      },
+      {
+        "name": "Krita",
+        "note": "Ücretsiz; dijital boyama ve illüstrasyon odaklı, fotoğraf düzenlemede GIMP kadar kapsamlı değil."
+      }
+    ],
+    "notes": "Photoshop'un Linux sürümü yok ve Wine altında güvenilir çalışmıyor (özellikle bulut lisanslı yeni sürümler); GIMP en yakın ücretsiz alternatif, ama öğrenme eğrisi var.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Adobe Illustrator",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "Inkscape",
+        "note": "Ücretsiz, açık kaynak vektör grafik programı; farklı bir arayüz/öğrenme eğrisi var."
+      }
+    ],
+    "notes": "Illustrator'ın Linux sürümü yok; vektör grafik için Inkscape en yakın ücretsiz alternatif.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Adobe Premiere Pro",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "DaVinci Resolve",
+        "note": "Ücretsiz sürümü var; Blackmagic Design resmi bir Linux sürümü sağlıyor, profesyonel düzeyde."
+      },
+      {
+        "name": "Kdenlive",
+        "note": "Ücretsiz, açık kaynak; daha basit projeler için yeterli."
+      }
+    ],
+    "notes": "Premiere Pro'nun Linux sürümü yok; DaVinci Resolve'un resmi Linux sürümü en yakın profesyonel alternatif.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Adobe Acrobat",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Okular",
+        "note": "Çoğu dağıtımda hazır gelir; PDF görüntüleme, imzalama ve temel not alma destekler."
+      },
+      {
+        "name": "Evince (Belge Görüntüleyici)",
+        "note": "Çoğu dağıtımda hazır gelir; sade PDF görüntüleme için yeterli."
+      }
+    ],
+    "notes": "Adobe, Acrobat Reader'ın Linux sürümünü uzun süredir sağlamıyor; PDF görüntüleme için Okular/Evince yeterli, ama ileri düzey PDF düzenleme/imzalama özellikleri daha kısıtlı.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Adobe Lightroom",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "darktable",
+        "note": "Ücretsiz, açık kaynak; RAW fotoğraf işleme odaklı, farklı bir arayüz."
+      },
+      {
+        "name": "digiKam",
+        "note": "Ücretsiz; fotoğraf yönetimi ve temel düzenleme."
+      }
+    ],
+    "notes": "Lightroom'un Linux sürümü yok; RAW fotoğraf işleme için darktable en yakın ücretsiz alternatif.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "AutoCAD",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Autodesk"
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "FreeCAD",
+        "note": "Ücretsiz, açık kaynak; farklı bir iş akışı ve dosya biçimi kullanır, doğrudan .dwg uyumu sınırlı."
+      },
+      {
+        "name": "LibreCAD",
+        "note": "Ücretsiz; 2D çizim için AutoCAD'e daha yakın bir deneyim sunar."
+      }
+    ],
+    "notes": "AutoCAD'in Linux sürümü yok; 2D çizim için LibreCAD, daha genel amaçlı CAD için FreeCAD kullanılabilir ama .dwg dosya uyumu tam değildir.",
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Dropbox",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Dropbox'ın resmi bir Linux masaüstü istemcisi var.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Google Drive",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "rclone",
+        "note": "Ücretsiz, açık kaynak; komut satırından senkronizasyon sağlar, temel komut satırı bilgisi gerektirir."
+      },
+      {
+        "name": "Insync",
+        "note": "Ücretli, resmi olmayan üçüncü parti istemci; masaüstü senkronizasyon deneyimine daha yakın."
+      }
+    ],
+    "notes": "Google, Drive için resmi bir Linux masaüstü istemcisi sağlamıyor; rclone (komut satırı) ya da Insync (ücretli, üçüncü parti) ile senkronizasyon yapılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft OneDrive",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "OneDrive Client for Linux",
+        "note": "Ücretsiz, açık kaynak topluluk projesi; komut satırından senkronizasyon sağlar.",
+        "technical_name": "onedrive (abraunegg)"
+      },
+      {
+        "name": "rclone",
+        "note": "Ücretsiz, açık kaynak; komut satırından senkronizasyon sağlar."
+      }
+    ],
+    "notes": "Microsoft, OneDrive için resmi bir Linux masaüstü istemcisi sağlamıyor; topluluk tarafından geliştirilen açık kaynak istemcilerle senkronizasyon yapılabilir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Visual Studio Build Tools",
+          "match_type": "contains"
+        },
+        {
+          "pattern": "Visual Studio Derleme Araçları",
+          "match_type": "contains",
+          "language": "tr"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": ".NET SDK",
+        "note": "Resmi Microsoft dağıtımı; .NET projelerini Linux'ta derlemek için yeterli."
+      },
+      {
+        "name": "GCC / Clang",
+        "note": "C/C++ projeleri için; çoğu dağıtımda paket yöneticisinden kurulur."
+      }
+    ],
+    "notes": "Visual Studio Build Tools bir IDE değil, yalnızca derleyici/araç zinciridir; Linux'ta buna karşılık gelen şey işletim sistemine göre değişen bir derleyici paketidir, ayrı bir 'IDE muadili' değildir.",
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Visual Studio Installer",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Dağıtımın paket yöneticisi (apt/dnf/pacman)",
+        "note": "Aynı işlevi görür: araçları buradan kurup güncellersin."
+      }
+    ],
+    "notes": "Bu, Visual Studio bileşenlerini kurup güncelleyen bir araçtır — bir program değil. Linux'ta yazılım kurulumu zaten dağıtımın kendi paket yöneticisiyle yapılır, ayrı bir yükleyiciye gerek yoktur.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Audacity",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Audacity'nin resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Python",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Python zaten çoğu Linux dağıtımında hazır gelir ya da paket yöneticisinden kurulabilir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Node.js",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Node.js'in resmi bir Linux sürümü var.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "MSYS2",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Dağıtımın kendi terminali ve paket yöneticisi",
+        "note": "MSYS2'nin sağladığı bash/gcc/make gibi araçlar Linux'ta zaten yerleşiktir."
+      }
+    ],
+    "notes": "MSYS2, Windows üzerinde Unix benzeri bir geliştirme ortamı sağlamak için var; Linux'ta buna zaten gerek yok, çünkü dağıtımın kendi kabuğu ve derleyicileri aynı işi doğrudan görür.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "PowerShell",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "PowerShell 7 ve üzeri sürümlerin Microsoft tarafından sağlanan resmi bir Linux dağıtımı var (Windows'a gömülü eski Windows PowerShell 5.1 hariç).",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Java 8",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Oracle, Java için resmi Linux dağıtımları da sağlıyor; ayrıca çoğu dağıtımda hazır bulunan ücretsiz OpenJDK de bir alternatiftir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "µTorrent",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "qBittorrent",
+        "note": "Ücretsiz, açık kaynak, reklamsız; µTorrent'e yakın bir arayüz sunar."
+      },
+      {
+        "name": "Transmission",
+        "note": "Çoğu dağıtımda hazır gelir; sade bir BitTorrent istemcisi."
+      }
+    ],
+    "notes": "µTorrent'in resmi bir Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "uTorrent",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "qBittorrent",
+        "note": "Ücretsiz, açık kaynak, reklamsız; µTorrent'e yakın bir arayüz sunar."
+      },
+      {
+        "name": "Transmission",
+        "note": "Çoğu dağıtımda hazır gelir; sade bir BitTorrent istemcisi."
+      }
+    ],
+    "notes": "µTorrent'in resmi bir Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "CPU-Z",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "CPU-X",
+        "note": "Ücretsiz, açık kaynak; CPU-Z'ye benzer bir arayüzle donanım bilgisi gösterir."
+      }
+    ],
+    "notes": "CPU-Z'nin Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "AIDA64",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "HardInfo",
+        "note": "Basit bir grafik arayüzle sistem bilgisi ve karşılaştırma testleri sunar."
+      },
+      {
+        "name": "inxi",
+        "note": "Komut satırından ayrıntılı sistem/donanım bilgisi verir."
+      }
+    ],
+    "notes": "AIDA64'ün Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Razer Synapse",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "OpenRazer + Polychromatic",
+        "note": "Açık kaynak topluluk projesi; RGB aydınlatma ve tuş ayarlarının bir kısmını destekler, tüm modellerde veya Razer yazılımıyla birebir aynı kapsamda değildir."
+      }
+    ],
+    "notes": "Razer Synapse'ın resmi bir Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "SteelSeries GG",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [],
+    "notes": "SteelSeries GG'nin Linux sürümü yok. Çoğu SteelSeries çevre birimi temel bir HID aygıtı olarak Linux'ta sorunsuz çalışır; kaybedilen yalnızca RGB aydınlatma/makro gibi özelleştirme özellikleridir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Corsair iCUE",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "ckb-next",
+        "note": "Açık kaynak topluluk projesi; yalnızca bazı Corsair klavye/fare/RGB modellerini destekler."
+      }
+    ],
+    "notes": "iCUE'nun resmi bir Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Logitech G HUB",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Piper",
+        "note": "Açık kaynak; libratbag üzerine kurulu, çoğu Logitech oyun faresinin DPI/tuş ayarlarını destekler.",
+        "technical_name": "piper (libratbag)"
+      }
+    ],
+    "notes": "G HUB'ın resmi bir Linux sürümü yok.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "GNU Privacy Guard",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "GPG, Linux'ta zaten yerleşik olarak (ya da paket yöneticisinden) mevcuttur.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Gpg4win",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Gpg4win, GPG'nin Windows paketlemesidir; içerdiği Kleopatra arayüzünün de resmi bir Linux sürümü var, GPG'nin kendisi zaten Linux'ta yerleşiktir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Microsoft .NET SDK",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": "Microsoft, .NET SDK'nın resmi bir Linux dağıtımını sağlıyor.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "GOG Galaxy",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "equivalent",
+    "alternatives": [
+      {
+        "name": "Heroic Games Launcher",
+        "note": "Ücretsiz, açık kaynak; GOG ve Epic mağazalarına Linux üzerinden erişim sağlar."
+      }
+    ],
+    "notes": "GOG Galaxy'nin resmi bir Linux sürümü yok; Heroic Games Launcher aynı mağazaya Linux'tan erişim sağlıyor. GOG'un çoğu oyunu zaten DRM'siz Linux kurulum dosyası olarak da satılıyor.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Origin",
+          "match_type": "exact"
+        }
+      ],
+      "publisher_pattern": "Electronic Arts"
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": "EA'nın eski Origin istemcisinin Linux sürümü yok; Lutris/Wine üzerinden çalıştırılabiliyor ama oyun bazında uyumluluk değişir.",
+    "importance": "minor"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Uplay",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": "Uplay'in (şimdiki adıyla Ubisoft Connect) Linux sürümü yok; Lutris/Wine üzerinden çalıştırılabiliyor ama oyun bazında uyumluluk değişir.",
+    "importance": "minor"
+  }
+]
