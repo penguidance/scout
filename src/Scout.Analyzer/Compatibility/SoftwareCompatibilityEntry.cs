@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Scout.Core.Models;
 
 namespace Scout.Analyzer.Compatibility;
 
@@ -15,9 +16,9 @@ public sealed class SoftwareCompatibilityEntry
     [JsonPropertyName("alternatives")]
     public IReadOnlyList<SoftwareAlternative> Alternatives { get; init; } = [];
 
-    /// <summary>One-sentence, user-facing explanation of the situation. The report shows this verbatim — never a string composed in code — so it can be corrected by editing the JSON.</summary>
+    /// <summary>One-sentence, user-facing explanation of the situation. The report shows this verbatim — never a string composed in code — so it can be corrected by editing the JSON. Localized (see <see cref="LocalizedText"/>); resolved against the profile's language when the report is generated.</summary>
     [JsonPropertyName("notes")]
-    public required string Notes { get; init; }
+    public required LocalizedText Notes { get; init; }
 
     /// <summary>Default severity if this ends up <see cref="SoftwareCompatibilityStatus.Blocked"/> — see <see cref="SoftwareImportance"/>.</summary>
     [JsonPropertyName("importance")]

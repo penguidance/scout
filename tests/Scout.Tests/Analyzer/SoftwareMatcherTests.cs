@@ -10,33 +10,33 @@ public class SoftwareMatcherTests
           {
             "match": { "name_aliases": [{ "pattern": "Adobe Photoshop", "match_type": "contains" }] },
             "status": "blocked",
-            "alternatives": [{ "name": "GIMP", "note": "Ücretsiz." }],
-            "notes": "Photoshop'un Linux sürümü yok.",
+            "alternatives": [{ "name": "GIMP", "note": { "en": "Ücretsiz." } }],
+            "notes": { "en": "Photoshop'un Linux sürümü yok." },
             "importance": "critical"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Google Chrome", "match_type": "contains" }], "publisher_pattern": "Google" },
             "status": "native",
-            "notes": "Linux sürümü var.",
+            "notes": { "en": "Linux sürümü var." },
             "importance": "normal"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Origin", "match_type": "exact" }], "publisher_pattern": "Electronic Arts" },
             "status": "wine",
-            "notes": "Wine ile çalışır.",
+            "notes": { "en": "Wine ile çalışır." },
             "importance": "minor"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Visual Studio", "match_type": "contains" }] },
             "status": "equivalent",
-            "alternatives": [{ "name": "JetBrains Rider", "note": "Ücretli." }],
-            "notes": "Tam IDE'nin Linux sürümü yok.",
+            "alternatives": [{ "name": "JetBrains Rider", "note": { "en": "Ücretli." } }],
+            "notes": { "en": "Tam IDE'nin Linux sürümü yok." },
             "importance": "normal"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Visual Studio Code", "match_type": "contains" }] },
             "status": "native",
-            "notes": "Linux sürümü var.",
+            "notes": { "en": "Linux sürümü var." },
             "importance": "normal"
           },
           {
@@ -48,20 +48,20 @@ public class SoftwareMatcherTests
               ]
             },
             "status": "equivalent",
-            "alternatives": [{ "name": "LibreContoso", "note": "n/a" }],
-            "notes": "Contoso Suite'in Linux sürümü yok.",
+            "alternatives": [{ "name": "LibreContoso", "note": { "en": "n/a" } }],
+            "notes": { "en": "Contoso Suite'in Linux sürümü yok." },
             "importance": "normal"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Ambiguous Tool", "match_type": "contains" }] },
             "status": "blocked",
-            "notes": "No-language-tag entry, listed first.",
+            "notes": { "en": "No-language-tag entry, listed first." },
             "importance": "minor"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Ambiguous Tool", "match_type": "contains", "language": "tr" }] },
             "status": "native",
-            "notes": "Turkish-tagged entry, listed second.",
+            "notes": { "en": "Turkish-tagged entry, listed second." },
             "importance": "minor"
           }
         ]

@@ -13,7 +13,8 @@ public class ReportGeneratorTests
         BootMode? bootMode = BootMode.UEFI,
         bool? tpmPresent = true,
         string? tpmSpecVersion = "2.0",
-        bool? bitlockerAvailable = true) => new()
+        bool? bitlockerAvailable = true,
+        string? osLanguage = null) => new()
     {
         SchemaVersion = "0.1",
         CollectorVersion = "0.1.0",
@@ -46,7 +47,7 @@ public class ReportGeneratorTests
         },
         Devices = [],
         GpuTopology = new GpuTopology { Gpus = [], Layout = null },
-        Os = new OsInfo { Edition = "Windows 11 Pro", Version = "10.0.26200", Build = "26200", Architecture = CpuArchitecture.x86_64 },
+        Os = new OsInfo { Edition = "Windows 11 Pro", Version = "10.0.26200", Build = "26200", Architecture = CpuArchitecture.x86_64, Language = osLanguage },
         Software = [],
         SoftwareFilteredCount = 0,
         Peripherals = [],
@@ -66,12 +67,14 @@ public class ReportGeneratorTests
         Status = DeviceStatus.OK
     };
 
-    private static CompatibilityEntry Entry(SupportLevel support, string driver = "amdgpu", string notes = "test notes") => new()
+    private static CompatibilityEntry Entry(SupportLevel support, string driver = "amdgpu", string notes = "test notes", string? notesTr = null) => new()
     {
         VendorId = "1002",
         KernelDriver = driver,
         Support = support,
-        Notes = notes
+        Notes = notesTr is null
+            ? LocalizedText.FromEnglish(notes)
+            : new LocalizedText(new Dictionary<string, string> { ["en"] = notes, ["tr"] = notesTr })
     };
 
     private static AnalysisResult SingleDeviceResult(DeviceInfo device, SupportLevel support, MatchLevel level = MatchLevel.Exact, CompatibilityEntry? entry = null, Verdict verdict = Verdict.Ready)
@@ -128,6 +131,34 @@ public class ReportGeneratorTests
         Assert.Contains(ReportStrings.AttentionSectionTitle, html);
         Assert.Contains("Bu tam olarak veritabanından gelen benzersiz bir not metnidir.", html);
         Assert.Contains("NVIDIA GeForce RTX 3060", html);
+    }
+
+    [Fact]
+    public void Generate_ProfileLanguageMatchesADatabaseTranslation_UsesThatLanguage()
+    {
+        var device = Device("NVIDIA GeForce RTX 3060", vendorId: "10DE", deviceId: "2504");
+        var entry = Entry(SupportLevel.Proprietary, driver: "nvidia", notes: "English-only note.", notesTr: "Türkçe not.");
+        var result = SingleDeviceResult(device, SupportLevel.Proprietary, entry: entry, verdict: Verdict.NeedsAttention);
+
+        var html = new ReportGenerator().Generate(MinimalProfile(osLanguage: "tr-TR"), result);
+
+        Assert.Contains("Türkçe not.", html);
+        Assert.DoesNotContain("English-only note.", html);
+    }
+
+    [Fact]
+    public void Generate_ProfileLanguageHasNoTranslation_FallsBackToEnglish()
+    {
+        var device = Device("NVIDIA GeForce RTX 3060", vendorId: "10DE", deviceId: "2504");
+        var entry = Entry(SupportLevel.Proprietary, driver: "nvidia", notes: "English-only note.", notesTr: "Türkçe not.");
+        var result = SingleDeviceResult(device, SupportLevel.Proprietary, entry: entry, verdict: Verdict.NeedsAttention);
+
+        // German is not one of this entry's languages — must fall back to "en", never throw and
+        // never show an empty cell.
+        var html = new ReportGenerator().Generate(MinimalProfile(osLanguage: "de-DE"), result);
+
+        Assert.Contains("English-only note.", html);
+        Assert.DoesNotContain("Türkçe not.", html);
     }
 
     [Fact]

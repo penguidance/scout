@@ -12,7 +12,7 @@ public class MachineAnalyzerTests
 {
     private const string Database = """
         [
-          { "vendor_id": "1002", "device_id": null, "device_class": "Display", "kernel_driver": "amdgpu", "support": "native", "notes": "n/a" }
+          { "vendor_id": "1002", "device_id": null, "device_class": "Display", "kernel_driver": "amdgpu", "support": "native", "notes": { "en": "n/a" } }
         ]
         """;
 
@@ -21,26 +21,26 @@ public class MachineAnalyzerTests
           {
             "match": { "name_aliases": [{ "pattern": "Adobe Photoshop", "match_type": "contains" }] },
             "status": "blocked",
-            "notes": "n/a",
+            "notes": { "en": "n/a" },
             "importance": "critical"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Notepad++", "match_type": "contains" }] },
             "status": "equivalent",
-            "alternatives": [{ "name": "VS Code", "note": "n/a" }],
-            "notes": "n/a",
+            "alternatives": [{ "name": "VS Code", "note": { "en": "n/a" } }],
+            "notes": { "en": "n/a" },
             "importance": "minor"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Ambiguous Tool", "match_type": "contains" }] },
             "status": "blocked",
-            "notes": "No-language-tag entry, listed first.",
+            "notes": { "en": "No-language-tag entry, listed first." },
             "importance": "minor"
           },
           {
             "match": { "name_aliases": [{ "pattern": "Ambiguous Tool", "match_type": "contains", "language": "tr" }] },
             "status": "native",
-            "notes": "Turkish-tagged entry, listed second.",
+            "notes": { "en": "Turkish-tagged entry, listed second." },
             "importance": "minor"
           }
         ]

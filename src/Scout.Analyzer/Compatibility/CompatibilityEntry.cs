@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Scout.Core.Models;
 
 namespace Scout.Analyzer.Compatibility;
 
@@ -64,10 +65,11 @@ public sealed class CompatibilityEntry
     /// A plain-language label shown instead of <see cref="KernelDriver"/> wherever the raw
     /// module name would confuse a reader (e.g. "HDMI/DisplayPort ses çıkışı" instead of
     /// "snd_hda_intel"). Optional — most entries do not need one; falls back to
-    /// <see cref="KernelDriver"/> when null.
+    /// <see cref="KernelDriver"/> when null. Localized (see <see cref="LocalizedText"/>) since it
+    /// is user-facing prose, not a technical identifier.
     /// </summary>
     [JsonPropertyName("display_name")]
-    public string? DisplayName { get; init; }
+    public LocalizedText? DisplayName { get; init; }
 
     [JsonPropertyName("support")]
     public required SupportLevel Support { get; init; }
@@ -76,7 +78,7 @@ public sealed class CompatibilityEntry
     [JsonPropertyName("min_kernel")]
     public string? MinKernel { get; init; }
 
-    /// <summary>Short, user-facing explanation.</summary>
+    /// <summary>Short, user-facing explanation. Localized — see <see cref="LocalizedText"/>; resolved against the profile's language when the report is generated.</summary>
     [JsonPropertyName("notes")]
-    public required string Notes { get; init; }
+    public required LocalizedText Notes { get; init; }
 }

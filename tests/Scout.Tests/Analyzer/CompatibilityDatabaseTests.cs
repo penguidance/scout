@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Scout.Analyzer.Compatibility;
 using Xunit;
 
@@ -79,7 +80,7 @@ public class CompatibilityDatabaseTests
     public void FromJson_ParsesMinimalEntry()
     {
         const string json = """
-            [{ "vendor_id": "abcd", "kernel_driver": "test", "support": "unknown", "notes": "n/a" }]
+            [{ "vendor_id": "abcd", "kernel_driver": "test", "support": "unknown", "notes": { "en": "n/a" } }]
             """;
 
         var database = CompatibilityDatabase.FromJson(json);
@@ -88,5 +89,15 @@ public class CompatibilityDatabaseTests
         Assert.Equal("abcd", entry.VendorId);
         Assert.Null(entry.DeviceId);
         Assert.Equal(SupportLevel.Unknown, entry.Support);
+    }
+
+    [Fact]
+    public void FromJson_NotesMissingEnglishKey_ThrowsAtLoadTime()
+    {
+        const string json = """
+            [{ "vendor_id": "abcd", "kernel_driver": "test", "support": "unknown", "notes": { "tr": "sadece türkçe" } }]
+            """;
+
+        Assert.Throws<JsonException>(() => CompatibilityDatabase.FromJson(json));
     }
 }

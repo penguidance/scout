@@ -91,7 +91,7 @@ public class GuidanceReportGeneratorTests
             {
                 Match = new SoftwareMatchRule { NameAliases = [new SoftwareNameAlias { Pattern = name, MatchType = SoftwareMatchType.Contains }] },
                 Status = status,
-                Notes = "n/a",
+                Notes = LocalizedText.FromEnglish("n/a"),
                 Importance = SoftwareImportance.Normal
             },
             Status = status,

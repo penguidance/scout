@@ -11,10 +11,22 @@ Bu doküman, `data/hardware-compatibility.json`'daki her girdinin (`Compatibilit
 | `device_id_range_start`, `device_id_range_end` | string?, opsiyonel (birlikte) | Kapsayıcı (inclusive) hex device_id aralığı. Bir üreticinin device_id'leri donanım nesline göre kümelendiğinde ve tek bir vendor-geneli kuralın aralığın bir kısmı için yanlış cevap vereceği durumlar için — bkz. aşağıdaki "Neden device_id aralıkları var". |
 | `device_class` | string?, opsiyonel | Vendor-geneli bir kural (`device_id` boş) için PNPClass benzeri kapsam (örn. `"Display"`, `"Net"`). Intel gibi tek vendor_id altında GPU/ağ/WiFi/USB gibi tamamen farklı donanım satan üreticiler için, tek bir kapsamsız kural yanıltıcı olurdu; sınıf bazlı kapsam aynı vendor için birden çok vendor-geneli kuralın çakışmadan bir arada durmasını sağlar. `device_id` doluysa yok sayılır. |
 | `kernel_driver` | string, zorunlu | Linux çekirdek modülü/sürücü adı, örn. `"amdgpu"`, `"r8169"`. |
-| `display_name` | string?, opsiyonel | `kernel_driver`'ın ham adı kullanıcıyı tereddüde düşürebileceği durumlarda onun yerine gösterilecek sade bir etiket (örn. `"snd_hda_intel"` yerine `"HDMI/DisplayPort ses çıkışı"`). Boşsa raporda `kernel_driver` gösterilir. |
+| `display_name` | LocalizedText?, opsiyonel | `kernel_driver`'ın ham adı kullanıcıyı tereddüde düşürebileceği durumlarda onun yerine gösterilecek sade bir etiket (örn. `"snd_hda_intel"` yerine `{ "en": "HDMI/DisplayPort audio output", "tr": "HDMI/DisplayPort ses çıkışı" }`). Boşsa raporda `kernel_driver` gösterilir. Bkz. aşağıdaki "`LocalizedText`: çok dilli metin alanları". |
 | `support` | enum, zorunlu | `native` \| `firmware_required` \| `proprietary` \| `partial` \| `unsupported` \| `unknown` |
 | `min_kernel` | string?, opsiyonel | Bilinen en düşük çalışır çekirdek sürümü, örn. `"5.4"`. En iyi çaba tahminidir, kesin garanti değildir. |
-| `notes` | string, zorunlu | Kullanıcıya gösterilecek kısa, sade dilde açıklama — Scout.Reporter'ın "Ne yapmalı?" sütunu **doğrudan bu metni** kullanır, kod içinde ayrıca bir çeviri/özet üretilmez. |
+| `notes` | LocalizedText, zorunlu | Kullanıcıya gösterilecek kısa, sade dilde açıklama — Scout.Reporter'ın "Ne yapmalı?" sütunu, profilin diline göre çözümlenmiş **bu metni doğrudan** kullanır, kod içinde ayrıca bir çeviri/özet üretilmez. Bkz. aşağıdaki "`LocalizedText`: çok dilli metin alanları". |
+
+## `LocalizedText`: çok dilli metin alanları
+
+`notes` ve `display_name`, düz bir string değil, dil koduna göre birden fazla metin taşıyan bir nesnedir — `data/software-compatibility.json` ile paylaşılan aynı `Scout.Core.Models.LocalizedText` tipi:
+
+```json
+"notes": { "en": "Your USB ports work with no extra installation.", "tr": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır." }
+```
+
+- **`en` zorunludur.** Diğer her dil (şu an yalnızca `tr`) opsiyoneldir; yalnızca sonucu iyileştirir, garanti edilen `en` düşüşünün yerini asla almaz.
+- **`en` eksikse bu bir veri hatasıdır** — veritabanı yüklenirken (`CompatibilityDatabase.FromJson`/`LoadEmbedded`) `LocalizedTextJsonConverter` hemen bir `JsonException` fırlatır; sessizce boş bir string'e düşülmez.
+- **Çözümleme**, `Scout.Reporter`'da rapor üretilirken profilin `os.language` alanına göre yapılır: tam eşleşme, yoksa (bir BCP-47 etiketiyse, örn. `"tr-TR"`) yalnızca birincil alt etiket, yoksa `en`. Ayrıntılı kural ve örnekler için bkz. [software-compatibility-v0.1.md](software-compatibility-v0.1.md)'deki aynı başlıklı bölüm — iki şema de aynı tipi ve aynı çözümleme kuralını kullanır.
 
 ## Eşleştirme sırası (`CompatibilityMatcher`)
 
@@ -43,3 +55,4 @@ Bunu çözmek için Scout.Collector'ın `HardwareIdParser`'ı, ham `hardware_id`
 
 - **v0.1** — İlk sürüm: temel `vendor_id`/`device_id`/`device_class` alanları ve üç seviyeli eşleştirme (exact/vendor_fallback/none).
 - **v0.1 (revizyon)** — `device_id_range_start`/`device_id_range_end` (dördüncü eşleştirme seviyesi: `RangeMatch`) ve `display_name` eklendi; `HardwareIdParser`'a USB kök hub'lar için sentetik `vendor_id` ataması eklendi.
+- **v0.1 (revizyon 2)** — `notes` ve `display_name` düz string'den `LocalizedText`'e çevrildi (bkz. yukarıdaki "`LocalizedText`: çok dilli metin alanları") — `{ "en": "...", "tr": "..." }`, `en` zorunlu diğer diller opsiyonel. 20 `notes` ve 5 `display_name` değerinin tamamının mevcut Türkçe metni `tr`'ye taşındı, her biri için taslak bir İngilizce çeviri eklendi. Scout.Reporter artık raporu `profile.os.language`'a göre çözümlüyor (`SoftwareMatcher`'ın takma ad dil yeğlemesiyle aynı tolerans kuralı); `en` eksik bir girdi veritabanı yüklenirken hemen `JsonException` ile başarısız olur.

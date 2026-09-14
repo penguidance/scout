@@ -13,7 +13,7 @@ public class CompatibilityMatcherTests
             "device_id": "7340",
             "kernel_driver": "amdgpu",
             "support": "native",
-            "notes": "exact AMD RX 5500 XT entry"
+            "notes": { "en": "exact AMD RX 5500 XT entry" }
           },
           {
             "vendor_id": "1002",
@@ -21,7 +21,7 @@ public class CompatibilityMatcherTests
             "device_class": "Display",
             "kernel_driver": "amdgpu-generic",
             "support": "native",
-            "notes": "AMD display vendor fallback"
+            "notes": { "en": "AMD display vendor fallback" }
           },
           {
             "vendor_id": "8086",
@@ -29,7 +29,7 @@ public class CompatibilityMatcherTests
             "device_class": "Display",
             "kernel_driver": "i915",
             "support": "native",
-            "notes": "Intel display vendor fallback"
+            "notes": { "en": "Intel display vendor fallback" }
           },
           {
             "vendor_id": "8086",
@@ -37,7 +37,7 @@ public class CompatibilityMatcherTests
             "device_class": "Net",
             "kernel_driver": "iwlwifi",
             "support": "firmware_required",
-            "notes": "Intel network vendor fallback"
+            "notes": { "en": "Intel network vendor fallback" }
           },
           {
             "vendor_id": "14E4",
@@ -45,7 +45,7 @@ public class CompatibilityMatcherTests
             "device_class": null,
             "kernel_driver": "brcmfmac",
             "support": "firmware_required",
-            "notes": "Broadcom class-less vendor fallback"
+            "notes": { "en": "Broadcom class-less vendor fallback" }
           }
         ]
         """;

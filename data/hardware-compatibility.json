@@ -6,10 +6,13 @@
     "device_id_range_end": "683F",
     "device_class": null,
     "kernel_driver": "radeon",
-    "display_name": "Radeon (eski nesil sürücü)",
+    "display_name": { "en": "Radeon (older-generation driver)", "tr": "Radeon (eski nesil sürücü)" },
     "support": "native",
     "min_kernel": null,
-    "notes": "Bu, AMD'nin 2012 civarı \"Southern Islands\" (GCN 1.0 — Tahiti/Pitcairn/Cape Verde ailesi, örn. Radeon HD 7700/7800/7900) nesli bir ekran kartı. Bu nesil için Linux'ta önerilen ve varsayılan sürücü daha yeni amdgpu değil, daha eski radeon sürücüsüdür — amdgpu bu kartları yalnızca deneysel bir önyükleme parametresiyle destekler ve varsayılan olarak kapalıdır. radeon sürücüsü bu kartlar için tam ve native destek sağlar, ek bir kurulum gerekmez."
+    "notes": {
+      "en": "This is a graphics card from AMD's ~2012 \"Southern Islands\" generation (GCN 1.0 — the Tahiti/Pitcairn/Cape Verde family, e.g. Radeon HD 7700/7800/7900). For this generation, the recommended and default driver on Linux is not the newer amdgpu but the older radeon driver — amdgpu only supports these cards via an experimental boot parameter and is disabled by default. The radeon driver provides full, native support for these cards; no extra installation is needed.",
+      "tr": "Bu, AMD'nin 2012 civarı \"Southern Islands\" (GCN 1.0 — Tahiti/Pitcairn/Cape Verde ailesi, örn. Radeon HD 7700/7800/7900) nesli bir ekran kartı. Bu nesil için Linux'ta önerilen ve varsayılan sürücü daha yeni amdgpu değil, daha eski radeon sürücüsüdür — amdgpu bu kartları yalnızca deneysel bir önyükleme parametresiyle destekler ve varsayılan olarak kapalıdır. radeon sürücüsü bu kartlar için tam ve native destek sağlar, ek bir kurulum gerekmez."
+    }
   },
   {
     "vendor_id": "1002",
@@ -18,27 +21,36 @@
     "kernel_driver": "amdgpu",
     "support": "native",
     "min_kernel": "4.2",
-    "notes": "Ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your graphics card works with the driver already included in Linux, with no extra installation.",
+      "tr": "Ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "1002",
     "device_id": "AA01",
     "device_class": null,
     "kernel_driver": "snd_hda_intel",
-    "display_name": "HDMI/DisplayPort ses çıkışı",
+    "display_name": { "en": "HDMI/DisplayPort audio output", "tr": "HDMI/DisplayPort ses çıkışı" },
     "support": "native",
     "min_kernel": null,
-    "notes": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your graphics card's audio output over HDMI/DisplayPort works with no extra installation.",
+      "tr": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "1002",
     "device_id": null,
     "device_class": "MEDIA",
     "kernel_driver": "snd_hda_intel",
-    "display_name": "HDMI/DisplayPort ses çıkışı",
+    "display_name": { "en": "HDMI/DisplayPort audio output", "tr": "HDMI/DisplayPort ses çıkışı" },
     "support": "native",
     "min_kernel": null,
-    "notes": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your graphics card's audio output over HDMI/DisplayPort works with no extra installation.",
+      "tr": "Ekran kartının HDMI/DisplayPort üzerinden ses çıkışı ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "8086",
@@ -47,7 +59,10 @@
     "kernel_driver": "i915",
     "support": "native",
     "min_kernel": null,
-    "notes": "Intel ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your Intel graphics card works with the driver already included in Linux, with no extra installation.",
+      "tr": "Intel ekran kartın Linux'ta hazır bulunan sürücüyle, ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "8086",
@@ -56,7 +71,10 @@
     "kernel_driver": "iwlwifi",
     "support": "firmware_required",
     "min_kernel": null,
-    "notes": "WiFi kartın tanınır ama çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde kurulum sırasında otomatik yapılır. Kurulum için internet gerekiyorsa, bu adımı tamamlayana kadar geçici olarak kablolu bağlantı kullanman gerekebilir."
+    "notes": {
+      "en": "Your WiFi card is recognized, but it needs a separate file (firmware) installed to work; this is usually done automatically during installation. If installation requires internet access, you may need to temporarily use a wired connection until this step is complete.",
+      "tr": "WiFi kartın tanınır ama çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde kurulum sırasında otomatik yapılır. Kurulum için internet gerekiyorsa, bu adımı tamamlayana kadar geçici olarak kablolu bağlantı kullanman gerekebilir."
+    }
   },
   {
     "vendor_id": "8086",
@@ -65,7 +83,10 @@
     "kernel_driver": "xhci_hcd",
     "support": "native",
     "min_kernel": null,
-    "notes": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your USB ports work with no extra installation.",
+      "tr": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "8086",
@@ -74,7 +95,10 @@
     "kernel_driver": "nvme",
     "support": "native",
     "min_kernel": null,
-    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your SSD works with no extra installation.",
+      "tr": "SSD'n ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "10DE",
@@ -83,7 +107,10 @@
     "kernel_driver": "nvidia (proprietary) / nouveau (açık kaynak)",
     "support": "proprietary",
     "min_kernel": null,
-    "notes": "Ekran kartının tam hızda ve tüm özellikleriyle çalışması için NVIDIA'nın kendi sürücüsünü kurman gerekir — bu genelde dağıtımın kurulum sihirbazından tek tıkla yapılabilir. Bu sürücüyü kurmadan da kart temel düzeyde çalışır, ama performans belirgin şekilde düşük olur ve oyun/video hızlandırma gibi bazı özellikler kullanılamaz."
+    "notes": {
+      "en": "For your graphics card to work at full speed and with all its features, you need to install NVIDIA's own driver — this can usually be done with one click from the distribution's installation wizard. The card also works at a basic level without this driver, but performance will be noticeably lower and some features such as gaming/video acceleration will be unavailable.",
+      "tr": "Ekran kartının tam hızda ve tüm özellikleriyle çalışması için NVIDIA'nın kendi sürücüsünü kurman gerekir — bu genelde dağıtımın kurulum sihirbazından tek tıkla yapılabilir. Bu sürücüyü kurmadan da kart temel düzeyde çalışır, ama performans belirgin şekilde düşük olur ve oyun/video hızlandırma gibi bazı özellikler kullanılamaz."
+    }
   },
   {
     "vendor_id": "10EC",
@@ -92,7 +119,10 @@
     "kernel_driver": "r8169",
     "support": "native",
     "min_kernel": null,
-    "notes": "Ağ (Ethernet) bağlantın ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your network (Ethernet) connection works with no extra installation.",
+      "tr": "Ağ (Ethernet) bağlantın ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "10EC",
@@ -101,17 +131,23 @@
     "kernel_driver": "snd_hda_codec_realtek",
     "support": "native",
     "min_kernel": null,
-    "notes": "Ses kartın ek bir kurulum yapmadan çalışır. Nadiren ön panel ses çıkışı gibi bazı bağlantılar ek bir ayar isteyebilir."
+    "notes": {
+      "en": "Your sound card works with no extra installation. Rarely, some connections such as the front-panel audio output may need an extra setting.",
+      "tr": "Ses kartın ek bir kurulum yapmadan çalışır. Nadiren ön panel ses çıkışı gibi bazı bağlantılar ek bir ayar isteyebilir."
+    }
   },
   {
     "vendor_id": "14E4",
     "device_id": "43BA",
     "device_class": null,
     "kernel_driver": "brcmfmac",
-    "display_name": "WiFi/Bluetooth (Apple MacBook varyantı)",
+    "display_name": { "en": "WiFi/Bluetooth (Apple MacBook variant)", "tr": "WiFi/Bluetooth (Apple MacBook varyantı)" },
     "support": "partial",
     "min_kernel": null,
-    "notes": "Bu Broadcom WiFi/Bluetooth çipinin MacBook'a özel firmware kalibrasyon dosyaları standart linux-firmware paketinde yer almaz; genelde macOS bölümünden elle çıkarılıp kopyalanması gerekir. Bu adım atlanırsa WiFi ya hiç çalışmaz ya da düşük performansla/aralıklı çalışır."
+    "notes": {
+      "en": "This Broadcom WiFi/Bluetooth chip's MacBook-specific firmware calibration files are not included in the standard linux-firmware package; they usually need to be manually extracted from the macOS partition and copied over. If this step is skipped, WiFi will either not work at all or work with low performance/intermittently.",
+      "tr": "Bu Broadcom WiFi/Bluetooth çipinin MacBook'a özel firmware kalibrasyon dosyaları standart linux-firmware paketinde yer almaz; genelde macOS bölümünden elle çıkarılıp kopyalanması gerekir. Bu adım atlanırsa WiFi ya hiç çalışmaz ya da düşük performansla/aralıklı çalışır."
+    }
   },
   {
     "vendor_id": "14E4",
@@ -120,7 +156,10 @@
     "kernel_driver": "brcmfmac (bazı eski modellerde desteklenmez)",
     "support": "firmware_required",
     "min_kernel": null,
-    "notes": "WiFi kartının çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde otomatik yapılır. Bazı eski modellerde bu dosya artık desteklenmiyor olabilir — kurulumdan sonra WiFi görünmüyorsa, tam model adını not alıp ayrıca araştırman gerekebilir."
+    "notes": {
+      "en": "Your WiFi card needs a separate file (firmware) installed to work; this is usually done automatically. On some older models this file may no longer be supported — if WiFi does not appear after installation, you may need to note down the exact model name and look into it separately.",
+      "tr": "WiFi kartının çalışması için ayrı bir dosya (firmware) kurulması gerekir; bu genelde otomatik yapılır. Bazı eski modellerde bu dosya artık desteklenmiyor olabilir — kurulumdan sonra WiFi görünmüyorsa, tam model adını not alıp ayrıca araştırman gerekebilir."
+    }
   },
   {
     "vendor_id": "1022",
@@ -129,7 +168,10 @@
     "kernel_driver": "xhci_hcd",
     "support": "native",
     "min_kernel": null,
-    "notes": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your USB ports work with no extra installation.",
+      "tr": "USB bağlantı noktaların ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "1987",
@@ -138,7 +180,10 @@
     "kernel_driver": "nvme",
     "support": "native",
     "min_kernel": null,
-    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your SSD works with no extra installation.",
+      "tr": "SSD'n ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "144D",
@@ -147,7 +192,10 @@
     "kernel_driver": "nvme",
     "support": "native",
     "min_kernel": null,
-    "notes": "SSD'n ek bir kurulum yapmadan çalışır."
+    "notes": {
+      "en": "Your SSD works with no extra installation.",
+      "tr": "SSD'n ek bir kurulum yapmadan çalışır."
+    }
   },
   {
     "vendor_id": "046D",
@@ -156,7 +204,10 @@
     "kernel_driver": "usbhid",
     "support": "native",
     "min_kernel": null,
-    "notes": "Klavye/fare/kulaklık gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya makro tuşlar gibi özel özellikler için ayrı bir program kurman gerekebilir."
+    "notes": {
+      "en": "This peripheral's basic function — as a keyboard/mouse/headset — works with no extra installation. For special features such as RGB lighting or macro keys, you may need to install a separate program.",
+      "tr": "Klavye/fare/kulaklık gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya makro tuşlar gibi özel özellikler için ayrı bir program kurman gerekebilir."
+    }
   },
   {
     "vendor_id": "1532",
@@ -165,7 +216,10 @@
     "kernel_driver": "usbhid",
     "support": "native",
     "min_kernel": null,
-    "notes": "Klavye/fare gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya DPI ayarı gibi özel özellikler için ayrı bir program (openrazer) kurman gerekebilir."
+    "notes": {
+      "en": "This peripheral's basic function — as a keyboard/mouse — works with no extra installation. For special features such as RGB lighting or DPI adjustment, you may need to install a separate program (openrazer).",
+      "tr": "Klavye/fare gibi bu çevre birimin temel işleviyle ek bir kurulum yapmadan çalışır. RGB aydınlatma veya DPI ayarı gibi özel özellikler için ayrı bir program (openrazer) kurman gerekebilir."
+    }
   },
   {
     "vendor_id": "1038",
@@ -174,16 +228,22 @@
     "kernel_driver": "usbhid / snd-usb-audio",
     "support": "native",
     "min_kernel": null,
-    "notes": "Kulaklık/fare gibi bu çevre birimin temel işleviyle (ses, tuş/düğme girişi) ek bir kurulum yapmadan çalışır. Üreticinin RGB/ekolayzör gibi yazılım özellikleri Linux'ta karşılığı olmayabilir."
+    "notes": {
+      "en": "This peripheral's basic function — as a headset/mouse (audio, key/button input) — works with no extra installation. The manufacturer's software features such as RGB/equalizer may have no equivalent on Linux.",
+      "tr": "Kulaklık/fare gibi bu çevre birimin temel işleviyle (ses, tuş/düğme girişi) ek bir kurulum yapmadan çalışır. Üreticinin RGB/ekolayzör gibi yazılım özellikleri Linux'ta karşılığı olmayabilir."
+    }
   },
   {
     "vendor_id": "USBROOTHUB",
     "device_id": null,
     "device_class": null,
     "kernel_driver": "usbcore",
-    "display_name": "USB kök hub (altyapı)",
+    "display_name": { "en": "USB root hub (infrastructure)", "tr": "USB kök hub (altyapı)" },
     "support": "native",
     "min_kernel": null,
-    "notes": "Bu, fiziksel/takılabilir bir aygıt değil; USB denetleyicisinin kendi çekirdek (kök hub) işlevidir. Linux'un USB alt sistemiyle (usbcore) her zaman hazır gelir, hiçbir kurulum gerekmez."
+    "notes": {
+      "en": "This is not a physical/pluggable device; it is the USB controller's own core (root hub) function. It always comes ready with Linux's USB subsystem (usbcore); no installation is required.",
+      "tr": "Bu, fiziksel/takılabilir bir aygıt değil; USB denetleyicisinin kendi çekirdek (kök hub) işlevidir. Linux'un USB alt sistemiyle (usbcore) her zaman hazır gelir, hiçbir kurulum gerekmez."
+    }
   }
 ]

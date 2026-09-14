@@ -67,7 +67,7 @@ public class RealDatabaseBehaviorTests
 
         Assert.Equal(MatchLevel.Exact, result.Level);
         Assert.Equal(SupportLevel.Native, result.Support);
-        Assert.Equal("HDMI/DisplayPort ses çıkışı", result.Entry!.DisplayName);
+        Assert.Equal("HDMI/DisplayPort ses çıkışı", result.Entry!.DisplayName!.Resolve("tr"));
         Assert.Equal("snd_hda_intel", result.Entry.KernelDriver); // the real module name is still kept, just not shown as the primary label
     }
 }

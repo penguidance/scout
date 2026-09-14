@@ -56,8 +56,8 @@ public class SoftwareReportGeneratorTests
             NameAliases = [new SoftwareNameAlias { Pattern = "test", MatchType = SoftwareMatchType.Contains }]
         },
         Status = status,
-        Alternatives = alternatives.Select(a => new SoftwareAlternative { Name = a.Name, Note = a.Note }).ToList(),
-        Notes = notes,
+        Alternatives = alternatives.Select(a => new SoftwareAlternative { Name = a.Name, Note = LocalizedText.FromEnglish(a.Note) }).ToList(),
+        Notes = LocalizedText.FromEnglish(notes),
         Importance = importance
     };
 

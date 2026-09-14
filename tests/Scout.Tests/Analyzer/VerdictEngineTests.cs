@@ -33,7 +33,7 @@ public class VerdictEngineTests
                     NameAliases = [new SoftwareNameAlias { Pattern = "Test", MatchType = SoftwareMatchType.Contains }]
                 },
                 Status = status,
-                Notes = "n/a",
+                Notes = LocalizedText.FromEnglish("n/a"),
                 Importance = importance
             },
             Status = status,

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Scout.Core.Models;
 
 namespace Scout.Analyzer.Compatibility;
 
@@ -14,9 +15,9 @@ public sealed class SoftwareAlternative
     [JsonPropertyName("name")]
     public required string Name { get; init; }
 
-    /// <summary>One short, user-facing sentence — e.g. whether it is free, or has a different learning curve. Distinct from the entry-level <see cref="SoftwareCompatibilityEntry.Notes"/>, which describes the original program's situation, not this specific alternative.</summary>
+    /// <summary>One short, user-facing sentence — e.g. whether it is free, or has a different learning curve. Distinct from the entry-level <see cref="SoftwareCompatibilityEntry.Notes"/>, which describes the original program's situation, not this specific alternative. Localized (see <see cref="LocalizedText"/>).</summary>
     [JsonPropertyName("note")]
-    public required string Note { get; init; }
+    public required LocalizedText Note { get; init; }
 
     /// <summary>
     /// Optional exact package/binary/repository identifier (e.g. "onedrive (abraunegg)"), kept

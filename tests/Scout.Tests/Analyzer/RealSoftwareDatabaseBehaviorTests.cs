@@ -34,7 +34,7 @@ public class RealSoftwareDatabaseBehaviorTests
         var result = CreateMatcher().Match(software);
 
         Assert.DoesNotContain(result.Entry!.Alternatives, a => a.Name.Contains("Rider"));
-        Assert.Contains("paket yöneticisi", result.Entry.Notes, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("paket yöneticisi", result.Entry.Notes.Resolve("tr"), StringComparison.OrdinalIgnoreCase);
     }
 
     [Fact]

@@ -25,6 +25,7 @@ public sealed class ReportGenerator
 
         var counts = SupportCounts.From(analysis.Devices);
         var machineLabel = BuildMachineLabel(profile);
+        var language = profile.Os.Language;
 
         var sb = new StringBuilder();
         sb.Append("<!doctype html>\n<html lang=\"tr\">\n<head>\n<meta charset=\"utf-8\">\n");
@@ -38,11 +39,11 @@ public sealed class ReportGenerator
         sb.Append("<div class=\"container\">\n");
         AppendDistributionRecommendation(sb, analysis.DistributionRecommendation);
         AppendDailyLifeImpact(sb, profile, analysis);
-        AppendAttentionSection(sb, analysis);
-        AppendSoftwareProblemsSection(sb, analysis);
+        AppendAttentionSection(sb, analysis, language);
+        AppendSoftwareProblemsSection(sb, analysis, language);
         AppendSystemConstraintsSection(sb, analysis);
         AppendSoftwareEquivalentsSection(sb, analysis);
-        AppendTechnicalDetails(sb, analysis);
+        AppendTechnicalDetails(sb, analysis, language);
         AppendSoftwareTechnicalDetails(sb, profile, analysis);
         AppendSystemSummary(sb, profile);
         AppendNextSteps(sb, profile, analysis);
@@ -183,7 +184,7 @@ public sealed class ReportGenerator
         SupportLevel.Unsupported
     ];
 
-    private static void AppendAttentionSection(StringBuilder sb, AnalysisResult analysis)
+    private static void AppendAttentionSection(StringBuilder sb, AnalysisResult analysis, string? language)
     {
         // Deliberately not "everything that isn't Native": an Unknown device (no database entry
         // at all — e.g. a generic USB root hub with no vendor_id to look up) is not a known
@@ -212,7 +213,7 @@ public sealed class ReportGenerator
         {
             // The "what to do" text is the database's own notes field, verbatim — never a
             // string composed in code — so it can be corrected/improved by editing the JSON.
-            var whatToDo = assessment.Match.Entry?.Notes ?? ReportStrings.NoNotesAvailable;
+            var whatToDo = assessment.Match.Entry?.Notes.Resolve(language) ?? ReportStrings.NoNotesAvailable;
 
             sb.Append("      <tr>");
             sb.Append($"<td>{Html(assessment.Device.FriendlyName)}</td>");
@@ -245,7 +246,7 @@ public sealed class ReportGenerator
         SoftwareCompatibilityStatus.Partial
     ];
 
-    private static void AppendSoftwareProblemsSection(StringBuilder sb, AnalysisResult analysis)
+    private static void AppendSoftwareProblemsSection(StringBuilder sb, AnalysisResult analysis, string? language)
     {
         var problems = analysis.SoftwareAssessments
             .Where(a => SoftwareProblemStatuses.Contains(a.Match.Status))
@@ -271,7 +272,7 @@ public sealed class ReportGenerator
             sb.Append(
                 $"<td><span class=\"badge badge-{SoftwareStatusCssClass(assessment.Match.Status)}\">" +
                 $"{Html(ReportStrings.SoftwareStatusLabel(assessment.Match.Status))}</span></td>");
-            sb.Append($"<td>{Html(assessment.Match.Entry?.Notes ?? ReportStrings.Unknown)}</td>");
+            sb.Append($"<td>{Html(assessment.Match.Entry?.Notes.Resolve(language) ?? ReportStrings.Unknown)}</td>");
             sb.Append($"<td>{Html(ReportStrings.SoftwareAlternativesSummary(assessment.Match.Entry))}</td>");
             sb.Append("</tr>\n");
         }
@@ -407,7 +408,7 @@ public sealed class ReportGenerator
 
     // ---- Block 8: full technical breakdown, folded away by default ------------------------
 
-    private static void AppendTechnicalDetails(StringBuilder sb, AnalysisResult analysis)
+    private static void AppendTechnicalDetails(StringBuilder sb, AnalysisResult analysis, string? language)
     {
         sb.Append("<section class=\"card\">\n  <details>\n");
         sb.Append($"    <summary>{Html(ReportStrings.TechnicalDetailsSummary)} ({analysis.Devices.Count})</summary>\n");
@@ -437,7 +438,7 @@ public sealed class ReportGenerator
             sb.Append($"<td>{Html(assessment.Device.FriendlyName)}</td>");
             sb.Append($"<td><code>{Html(vendorDevice)}</code></td>");
             sb.Append($"<td>{Html(assessment.Device.Class)}</td>");
-            sb.Append($"<td>{DriverCell(assessment.Match.Entry)}</td>");
+            sb.Append($"<td>{DriverCell(assessment.Match.Entry, language)}</td>");
             sb.Append($"<td>{Html(ReportStrings.MatchLevelLabel(assessment.Match.Level))}</td>");
             sb.Append(
                 $"<td><span class=\"badge badge-{SupportCssClass(assessment.Match.Support)}\">" +
@@ -622,11 +623,11 @@ public sealed class ReportGenerator
     /// literal technical identifier), otherwise the raw <c>kernel_driver</c> module name in
     /// <c>&lt;code&gt;</c>.
     /// </summary>
-    private static string DriverCell(CompatibilityEntry? entry)
+    private static string DriverCell(CompatibilityEntry? entry, string? language)
     {
         if (entry?.DisplayName is not null)
         {
-            return Html(entry.DisplayName);
+            return Html(entry.DisplayName.Resolve(language));
         }
 
         return $"<code>{Html(entry?.KernelDriver ?? "—")}</code>";

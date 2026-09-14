@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Scout.Analyzer.Compatibility;
 using Xunit;
 
@@ -92,7 +93,7 @@ public class SoftwareCompatibilityDatabaseTests
             foreach (var alternative in entry.Alternatives)
             {
                 Assert.False(string.IsNullOrWhiteSpace(alternative.Name));
-                Assert.False(string.IsNullOrWhiteSpace(alternative.Note));
+                Assert.False(string.IsNullOrWhiteSpace(alternative.Note.Resolve("en")));
             }
         }
     }
@@ -104,7 +105,7 @@ public class SoftwareCompatibilityDatabaseTests
             [{
               "match": { "name_aliases": [{ "pattern": "Test App", "match_type": "contains" }] },
               "status": "blocked",
-              "notes": "n/a",
+              "notes": { "en": "n/a" },
               "importance": "minor"
             }]
             """;
@@ -132,7 +133,7 @@ public class SoftwareCompatibilityDatabaseTests
             [{
               "match": { "name_aliases": [{ "pattern": "Test App", "match_type": "contains" }] },
               "status": "{{jsonValue}}",
-              "notes": "n/a",
+              "notes": { "en": "n/a" },
               "importance": "minor"
             }]
             """;
@@ -156,7 +157,7 @@ public class SoftwareCompatibilityDatabaseTests
                 "publisher_pattern": "Contoso"
               },
               "status": "equivalent",
-              "notes": "n/a",
+              "notes": { "en": "n/a" },
               "importance": "normal"
             }]
             """;
@@ -168,5 +169,36 @@ public class SoftwareCompatibilityDatabaseTests
         Assert.Null(entry.Match.NameAliases[0].Language);
         Assert.Equal("tr", entry.Match.NameAliases[1].Language);
         Assert.Equal("Contoso", entry.Match.PublisherPattern);
+    }
+
+    [Fact]
+    public void FromJson_NotesMissingEnglishKey_ThrowsAtLoadTime()
+    {
+        const string json = """
+            [{
+              "match": { "name_aliases": [{ "pattern": "Test App", "match_type": "contains" }] },
+              "status": "blocked",
+              "notes": { "tr": "sadece türkçe" },
+              "importance": "minor"
+            }]
+            """;
+
+        Assert.Throws<JsonException>(() => SoftwareCompatibilityDatabase.FromJson(json));
+    }
+
+    [Fact]
+    public void FromJson_AlternativeNoteMissingEnglishKey_ThrowsAtLoadTime()
+    {
+        const string json = """
+            [{
+              "match": { "name_aliases": [{ "pattern": "Test App", "match_type": "contains" }] },
+              "status": "equivalent",
+              "alternatives": [{ "name": "Some Alt", "note": { "tr": "sadece türkçe" } }],
+              "notes": { "en": "n/a" },
+              "importance": "minor"
+            }]
+            """;
+
+        Assert.Throws<JsonException>(() => SoftwareCompatibilityDatabase.FromJson(json));
     }
 }
