@@ -12,9 +12,9 @@ namespace Scout.Core.Models;
 /// <remarks>
 /// "en" is the one required key — every other language is optional and only ever improves the
 /// result, never replaces the guaranteed fallback. This mirrors the project's general "never
-/// silently produce nothing" rule: a database entry missing "en" is a data error and must fail
-/// loudly at load time (see <see cref="LocalizedTextJsonConverter"/>), not resolve to an empty
-/// string at report time.
+/// silently produce nothing" rule: a database entry missing "en", or whose "en" value is empty or
+/// whitespace-only, is a data error and must fail loudly at load time (see
+/// <see cref="LocalizedTextJsonConverter"/>), not resolve to a blank string at report time.
 /// </remarks>
 [JsonConverter(typeof(LocalizedTextJsonConverter))]
 public sealed class LocalizedText
@@ -25,9 +25,9 @@ public sealed class LocalizedText
     {
         ArgumentNullException.ThrowIfNull(values);
 
-        if (!values.ContainsKey("en"))
+        if (!values.TryGetValue("en", out var english) || string.IsNullOrWhiteSpace(english))
         {
-            throw new ArgumentException("A LocalizedText value must contain an 'en' entry.", nameof(values));
+            throw new ArgumentException("A LocalizedText value must contain a non-empty 'en' entry.", nameof(values));
         }
 
         // Copied into a case-insensitive dictionary so a lookup for "TR" or "tr-TR" behaves the

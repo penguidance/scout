@@ -22,9 +22,41 @@ public class LocalizedTextTests
     }
 
     [Fact]
+    public void Constructor_EmptyEnglishValue_Throws()
+    {
+        var values = new Dictionary<string, string> { ["en"] = "", ["tr"] = "Merhaba" };
+
+        Assert.Throws<ArgumentException>(() => new LocalizedText(values));
+    }
+
+    [Fact]
+    public void Constructor_WhitespaceOnlyEnglishValue_Throws()
+    {
+        var values = new Dictionary<string, string> { ["en"] = "   ", ["tr"] = "Merhaba" };
+
+        Assert.Throws<ArgumentException>(() => new LocalizedText(values));
+    }
+
+    [Fact]
     public void FromJson_MissingEnglishKey_ThrowsAtLoadTime()
     {
         const string json = """{ "tr": "Merhaba" }""";
+
+        Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<LocalizedText>(json));
+    }
+
+    [Fact]
+    public void FromJson_EmptyEnglishValue_ThrowsAtLoadTime()
+    {
+        const string json = """{ "en": "", "tr": "Merhaba" }""";
+
+        Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<LocalizedText>(json));
+    }
+
+    [Fact]
+    public void FromJson_WhitespaceOnlyEnglishValue_ThrowsAtLoadTime()
+    {
+        const string json = """{ "en": "   ", "tr": "Merhaba" }""";
 
         Assert.Throws<JsonException>(() => JsonSerializer.Deserialize<LocalizedText>(json));
     }
