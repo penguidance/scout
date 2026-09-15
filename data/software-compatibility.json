@@ -617,19 +617,11 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "ClamAV",
-        "note": {
-          "en": "Free, open source; performs basic file scanning.",
-          "tr": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
-        }
-      }
-    ],
+    "status": "built_in",
+    "alternatives": [],
     "notes": {
-      "en": "Norton has no consumer desktop antivirus version for Linux. Linux is exposed to file-based virus threats far less than Windows; an extra antivirus is generally not needed for most home users.",
-      "tr": "Norton'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez."
+      "en": "Norton is not needed on Linux: the platform is exposed to file-based virus threats far less than Windows, so most home users don't need extra antivirus software at all.",
+      "tr": "Norton'a Linux'ta gerek yok: platform, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalıyor, bu yüzden çoğu ev kullanıcısının ek bir antivirüs yazılımına hiç ihtiyacı olmuyor."
     },
     "importance": "minor"
   },
@@ -642,19 +634,11 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "ClamAV",
-        "note": {
-          "en": "Free, open source; performs basic file scanning.",
-          "tr": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
-        }
-      }
-    ],
+    "status": "built_in",
+    "alternatives": [],
     "notes": {
-      "en": "McAfee has no consumer desktop antivirus version for Linux. Linux is exposed to file-based virus threats far less than Windows; an extra antivirus is generally not needed for most home users.",
-      "tr": "McAfee'nin Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez."
+      "en": "McAfee is not needed on Linux: the platform is exposed to file-based virus threats far less than Windows, so most home users don't need extra antivirus software at all.",
+      "tr": "McAfee'ye Linux'ta gerek yok: platform, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalıyor, bu yüzden çoğu ev kullanıcısının ek bir antivirüs yazılımına hiç ihtiyacı olmuyor."
     },
     "importance": "minor"
   },
@@ -667,19 +651,11 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "ClamAV",
-        "note": {
-          "en": "Free, open source; performs basic file scanning.",
-          "tr": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
-        }
-      }
-    ],
+    "status": "built_in",
+    "alternatives": [],
     "notes": {
-      "en": "Avast has no consumer desktop antivirus version for Linux. Linux is exposed to file-based virus threats far less than Windows; an extra antivirus is generally not needed for most home users.",
-      "tr": "Avast'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez."
+      "en": "Avast is not needed on Linux: the platform is exposed to file-based virus threats far less than Windows, so most home users don't need extra antivirus software at all.",
+      "tr": "Avast'a Linux'ta gerek yok: platform, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalıyor, bu yüzden çoğu ev kullanıcısının ek bir antivirüs yazılımına hiç ihtiyacı olmuyor."
     },
     "importance": "minor"
   },
@@ -692,19 +668,11 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "ClamAV",
-        "note": {
-          "en": "Free, open source; performs basic file scanning.",
-          "tr": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
-        }
-      }
-    ],
+    "status": "built_in",
+    "alternatives": [],
     "notes": {
-      "en": "Kaspersky has no consumer desktop antivirus version for Linux. Linux is exposed to file-based virus threats far less than Windows; an extra antivirus is generally not needed for most home users.",
-      "tr": "Kaspersky'nin Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez."
+      "en": "Kaspersky is not needed on Linux: the platform is exposed to file-based virus threats far less than Windows, so most home users don't need extra antivirus software at all.",
+      "tr": "Kaspersky'ye Linux'ta gerek yok: platform, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalıyor, bu yüzden çoğu ev kullanıcısının ek bir antivirüs yazılımına hiç ihtiyacı olmuyor."
     },
     "importance": "minor"
   },
@@ -717,19 +685,11 @@
         }
       ]
     },
-    "status": "blocked",
-    "alternatives": [
-      {
-        "name": "ClamAV",
-        "note": {
-          "en": "Free, open source; performs basic file scanning.",
-          "tr": "Ücretsiz, açık kaynak; temel dosya taraması yapar."
-        }
-      }
-    ],
+    "status": "built_in",
+    "alternatives": [],
     "notes": {
-      "en": "Bitdefender has no consumer desktop antivirus version for Linux. Linux is exposed to file-based virus threats far less than Windows; an extra antivirus is generally not needed for most home users.",
-      "tr": "Bitdefender'ın Linux için tüketici masaüstü antivirüs sürümü yok. Linux, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalır; çoğu ev kullanıcısı için ek bir antivirüs genelde gerekmez."
+      "en": "Bitdefender is not needed on Linux: the platform is exposed to file-based virus threats far less than Windows, so most home users don't need extra antivirus software at all.",
+      "tr": "Bitdefender'a Linux'ta gerek yok: platform, Windows'a kıyasla dosya tabanlı virüs tehditlerine çok daha az maruz kalıyor, bu yüzden çoğu ev kullanıcısının ek bir antivirüs yazılımına hiç ihtiyacı olmuyor."
     },
     "importance": "minor"
   },
