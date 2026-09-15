@@ -23,7 +23,14 @@ const software = defineCollection({
 });
 
 const pages = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/pages' })
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lastVerified: z.date(),
+    evidence: z.enum(['tested', 'reported', 'inferred']),
+    sources: z.string().optional()
+  })
 });
 
 export const collections = { software, pages };
