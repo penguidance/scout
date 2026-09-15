@@ -893,8 +893,8 @@
       {
         "name": "GIMP",
         "note": {
-          "en": "Free, open source; powerful, but has a different interface/learning curve compared to Photoshop.",
-          "tr": "Ücretsiz, açık kaynak; güçlü ama Photoshop'a göre farklı bir arayüz/öğrenme eğrisi var."
+          "en": "Free, open source; powerful, but has a different interface/learning curve compared to Photoshop; GIMP 3.x can export CMYK but has no full CMYK editing mode.",
+          "tr": "Ücretsiz, açık kaynak; güçlü ama Photoshop'a göre farklı bir arayüz/öğrenme eğrisi var; GIMP 3.x CMYK dışa aktarım yapar ama tam bir CMYK düzenleme modu yoktur."
         }
       },
       {
@@ -906,8 +906,8 @@
       }
     ],
     "notes": {
-      "en": "Photoshop has no Linux version and does not run reliably under Wine (especially newer cloud-licensed versions); GIMP is the closest free alternative, but it has a learning curve.",
-      "tr": "Photoshop'un Linux sürümü yok ve Wine altında güvenilir çalışmıyor (özellikle bulut lisanslı yeni sürümler); GIMP en yakın ücretsiz alternatif, ama öğrenme eğrisi var."
+      "en": "Photoshop has no Linux version and does not run reliably under Wine (especially newer cloud-licensed versions); GIMP is the closest free alternative, but it has a learning curve. Adobe Fonts cannot be used on Linux either, since it requires the Creative Cloud desktop app, which has no Linux version.",
+      "tr": "Photoshop'un Linux sürümü yok ve Wine altında güvenilir çalışmıyor (özellikle bulut lisanslı yeni sürümler); GIMP en yakın ücretsiz alternatif, ama öğrenme eğrisi var. Adobe Fonts de Linux'ta kullanılamaz, çünkü Creative Cloud masaüstü uygulamasını gerektirir ve bunun Linux sürümü yoktur."
     },
     "importance": "critical"
   },
@@ -925,14 +925,39 @@
       {
         "name": "Inkscape",
         "note": {
-          "en": "Free, open source vector graphics program; has a different interface/learning curve.",
-          "tr": "Ücretsiz, açık kaynak vektör grafik programı; farklı bir arayüz/öğrenme eğrisi var."
+          "en": "Free, open source vector graphics program with a different interface/learning curve; SVG is internally sRGB, so CMYK print work needs to go through Scribus.",
+          "tr": "Ücretsiz, açık kaynak vektör grafik programı, farklı bir arayüz/öğrenme eğrisi var; SVG dahili olarak sRGB olduğu için CMYK baskı işleri için Scribus'a aktarmak gerekir."
         }
       }
     ],
     "notes": {
-      "en": "Illustrator has no Linux version; Inkscape is the closest free alternative for vector graphics.",
-      "tr": "Illustrator'ın Linux sürümü yok; vektör grafik için Inkscape en yakın ücretsiz alternatif."
+      "en": "Illustrator has no Linux version; Inkscape is the closest free alternative for vector graphics. Adobe Fonts cannot be used on Linux either, since it requires the Creative Cloud desktop app, which has no Linux version.",
+      "tr": "Illustrator'ın Linux sürümü yok; vektör grafik için Inkscape en yakın ücretsiz alternatif. Adobe Fonts de Linux'ta kullanılamaz, çünkü Creative Cloud masaüstü uygulamasını gerektirir ve bunun Linux sürümü yoktur."
+    },
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "InDesign",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "blocked",
+    "alternatives": [
+      {
+        "name": "Scribus",
+        "note": {
+          "en": "Free, open source desktop publishing software; different interface/workflow, not a drop-in replacement for complex InDesign templates.",
+          "tr": "Ücretsiz, açık kaynak masaüstü yayıncılık yazılımı; farklı bir arayüz/iş akışı, karmaşık InDesign şablonları için birebir yerine geçmez."
+        }
+      }
+    ],
+    "notes": {
+      "en": "InDesign has no Linux version; Scribus is the closest free alternative for desktop publishing. Adobe Fonts cannot be used on Linux either, since it requires the Creative Cloud desktop app, which has no Linux version.",
+      "tr": "InDesign'ın Linux sürümü yok; masaüstü yayıncılık için Scribus en yakın ücretsiz alternatif. Adobe Fonts de Linux'ta kullanılamaz, çünkü Creative Cloud masaüstü uygulamasını gerektirir ve bunun Linux sürümü yoktur."
     },
     "importance": "critical"
   },
@@ -1064,6 +1089,58 @@
       "tr": "AutoCAD'in Linux sürümü yok; 2D çizim için LibreCAD, daha genel amaçlı CAD için FreeCAD kullanılabilir ama .dwg dosya uyumu tam değildir."
     },
     "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Affinity",
+          "match_type": "contains"
+        }
+      ]
+    },
+    "status": "wine",
+    "alternatives": [],
+    "notes": {
+      "en": "Affinity Designer/Photo/Publisher became completely free under Canva in October 2025, but there is still no official Linux version — it only runs through unofficial community Wine packaging (e.g. AffinityOnLinux/AppImage), which is not a supported configuration.",
+      "tr": "Affinity Designer/Photo/Publisher Ekim 2025'te Canva altında tamamen ücretsiz oldu, ama hâlâ resmi bir Linux sürümü yok — yalnızca resmi olmayan topluluk Wine paketlemesiyle (örn. AffinityOnLinux/AppImage) çalışıyor, desteklenen bir yapılandırma değil."
+    },
+    "importance": "critical"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "DaVinci Resolve",
+          "match_type": "contains"
+        }
+      ],
+      "publisher_pattern": "Blackmagic"
+    },
+    "status": "partial",
+    "alternatives": [],
+    "notes": {
+      "en": "DaVinci Resolve runs natively on Linux, but the free edition cannot decode H.264/H.265, and even the paid Studio edition has no Linux support for AAC audio, so many ordinary MP4 files are problematic.",
+      "tr": "DaVinci Resolve Linux'ta native çalışıyor, ama ücretsiz sürüm H.264/H.265 çözemiyor, ücretli Studio sürümünde bile Linux'ta AAC ses desteklenmiyor, bu yüzden çoğu sıradan MP4 dosyası sorun çıkarıyor."
+    },
+    "importance": "normal"
+  },
+  {
+    "match": {
+      "name_aliases": [
+        {
+          "pattern": "Inkscape",
+          "match_type": "prefix"
+        }
+      ]
+    },
+    "status": "native",
+    "alternatives": [],
+    "notes": {
+      "en": "Inkscape has an official Linux version; since 1.4 it can export CMYK-tagged PDF/TIFF/JPEG via ICC profiles, but its SVG format is internally sRGB-only, so a real print workflow still needs to be handed off to Scribus.",
+      "tr": "Inkscape'in resmi bir Linux sürümü var; 1.4'ten itibaren ICC profilleriyle CMYK etiketli PDF/TIFF/JPEG dışa aktarabiliyor, ama SVG biçimi dahili olarak yalnızca sRGB, bu yüzden gerçek bir baskı iş akışı için yine de Scribus'a aktarmak gerekiyor."
+    },
+    "importance": "minor"
   },
   {
     "match": {
